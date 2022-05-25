@@ -1,5 +1,7 @@
 import React from "react"
 import {Route, Routes, BrowserRouter} from "react-router-dom"
+import NavBar from "./components/NavBar"
+import './App.css';
 /*pages */
 import SignUp from "./pages/SignUp"
 import RapProfilePage from "./pages/RapProfilePage"
@@ -8,12 +10,19 @@ function App() {
     return (
         <BrowserRouter>
             <div>
-                <Routes>
-                    {/* add routes, unordered atm */}
-                    <Route path="/" element={<RapProfilePage />} />  
-                    <Route path="/LandingPage" element={<LandingPage />} />  
-                    <Route path="/SignUp" element={<SignUp />} /> 
-                </Routes>
+                <div className="App">
+                    <NavBar/>
+                    <div>
+                        <Routes>
+                            {/* add routes, unordered atm */}
+                            <Route path="/" element={<RapProfilePage />} />  
+                            <Route path="/LandingPage" element={<LandingPage />} />  
+                            <Route path="/SignUp" element={<SignUp />} /> 
+                            <Route path="/RapProfilePage" element={<RapProfilePage />} /> 
+                        </Routes>
+                    </div>
+                </div>
+                
             </div>
         </BrowserRouter>
     

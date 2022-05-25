@@ -9,8 +9,8 @@ class LandingPage extends React.Component {
       {/* Landing Page*/}
       
 
-      
-      <p>this is the landing page</p>
+      <br/><br/><br/><br/>
+      <p>this is the landing page:)</p>
 
       
     </div>
