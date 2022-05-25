@@ -1,6 +1,7 @@
 import React from "react"
 import { FaStar } from "react-icons/fa"
 import him from '../img/8f894a44e3cd1a595d547670308eae36.png';
+import { Link, NavLink } from "react-router-dom";
 
 export default function RapProfilePage() {
     return (
@@ -28,6 +29,7 @@ export default function RapProfilePage() {
                 <button>Job History</button>
                 <button>Job Requests</button>
             </div>
+            <Link to="/LandingPage">click to go to landing page</Link>
         </div>
     )
 }
