@@ -123,6 +123,19 @@ input {
 
 
 /*customer sign up page css */
+.cusFormLayout {
+    width: 60%;
+    max-width: 800px;
+    min-width: 650px;
+    height: 70%;    
+    align-self: center; 
+    border-radius: 5px;
+    color: black;  
+    display: flex;
+    flex-direction: column;    
+    align-items: center;  
+}
+
 .signUpStructure {
     display: flex;
     flex-direction:column;
@@ -152,7 +165,7 @@ input {
     justify-items: center;
 }
 
-.signUpStructure > button {
+.submitButton {
     margin-top: 20px;
     height: 40px;
     width: 40%;
@@ -162,4 +175,16 @@ input {
     border-style: none;
     color: white;
     background-color: #000;
+}
+
+/*END Customer SignUp CSS-----------------------------*/
+
+/*Customer payment from css  */
+/*Shares most from customer Sign up*/
+
+.paymentStructure {
+    display: flex;
+    flex-direction:column;
+    width:50%;    
+    margin-top:5%;    
 }
