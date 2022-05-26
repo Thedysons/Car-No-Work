@@ -1,4 +1,5 @@
 import React from "react"
+import { FaStar } from "react-icons/fa"
 
 export default function GuestCustomerPayment() {
     return (
@@ -11,6 +12,18 @@ export default function GuestCustomerPayment() {
         <input type="text" placeholder="mm/yyyy" className="signInText"></input>
         <p className="signInLabel">cvc </p>
         <input type="text" placeholder="Enter cvc" className="signInText"></input>
+
+        <p className="signInLabel">How would you rate your experience?</p>
+        <div className="Rating">
+            <FaStar className = "Star"/>
+            <FaStar className = "Star" />
+            <FaStar className = "Star" />
+            <FaStar className = "Star"/>
+            <FaStar className = "Star" />
+        </div>
+        <p className="signInLabel">Reasons for your score(200 characters)</p>
+        <textarea></textarea>
+
         <button>Submit</button>   
         </div>        
     </div>
