@@ -2,8 +2,8 @@ import React from "react"
 
 export default function CustomerSubPayment() {
     return (
-    <div className = "cusFormLayout">
-        <div className ="pageLayout">
+    <div className = "pageBackground">
+        <div className ="cusFormLayout">
         <h1>Become a member</h1>
             <form className = "paymentStructure">                
                 <p className="signInLabel">Card number </p>
