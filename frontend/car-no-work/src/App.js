@@ -7,6 +7,7 @@ import SignUp from "./pages/SignUp"
 import RapProfilePage from "./pages/RapProfilePage"
 import LandingPage from "./pages/LandingPage"
 import CustomerSignUp from "./pages/CustomerSignUp";
+import CustomerSubPayment from "./pages/CustomerSubPayment";
 
 
 
@@ -22,10 +23,10 @@ function App() {
                             {/* add routes, unordered atm */}
                             <Route path="/" element={<RapProfilePage />} />  
                             <Route path="/LandingPage" element={<LandingPage />} />  
-                            <Route path="/SignUp" element={<SignUp />} /> 
+                            <Route path="/SignIn" element={<SignUp />} /> 
                             <Route path="/RapProfilePage" element={<RapProfilePage />} /> 
                             <Route path="/customerSignUp" element={<CustomerSignUp />} /> 
-
+                            <Route path="/customerSubscriptionPayment" element={<CustomerSubPayment />} /> 
                         </Routes>
                     </div>
                 </div>
