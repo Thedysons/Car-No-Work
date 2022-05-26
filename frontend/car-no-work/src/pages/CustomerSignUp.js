@@ -14,11 +14,11 @@ export default function CustomerSignUp() {
                     <p className="signInLabel">Password: </p>
                     <input type ="text" className="signInText" placeholder="password" ></input>
                     <p className="signInLabel">Name: </p>
-                    <input type ="text" className="signInText" placeholder="name" ></input>
+                    <input type ="text" className="signInText" placeholder="Given and last names" ></input>
                     <p className="signInLabel">Address: </p>
                     <input type ="text" className="signInText"  placeholder="address"></input>
                     <p className="signInLabel">Date of Birth: </p>
-                    <input type ="text" className="signInText"  placeholder="Date Of Birth"></input>
+                    <input type ="text" className="signInText"  placeholder="dd/mm/yy"></input>
                     <button className="createAccount">Create account</button>
                 </div>
                 
