@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+html, body {
+    overflow-x: hidden;
+}
+input {
+    margin-top:60px;
+}
+/*Nav Bar CSS---------------------------------*/
+.Nav {
+    height:60px;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem, 2rem;
+    z-index: 100;
+    position:fixed;
+    width:100%;
+    /*in case you want to see how big the nav bar is*/
+    background-color:bisque;
+
+}
+.logo {
+    height:70px;
+    padding-top: 5px;
+}
+.NavLink {
+    color:#000;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    height:100%;
+    cursor: pointer;
+    text-decoration:none;
+}
+.NavMenuLinks {
+    color:#000;
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    height:100%;
+    cursor: pointer;
+    text-decoration:none;
+}
+.NavMenuLinks:hover{
+    transform: translateY(-2px);
+    transition: 0.3s;
+}
+.NavMenu {
+    display:flex;
+    align-items:center;
+    margin-right: -48px;
+    
+}
+.NavBtn {
+    display: flex;
+    Align-items: center;
+    margin-right: 24px;
+}
+
+
+
+/*END Nav Bar CSS-----------------------------*/
+/*Mechanic Profile CSS-----------------------------*/
+.pageBackground {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: #77BC3F; 
+    justify-content: center;     
+}
+
+.pageLayout {    
+    width: 60%;
+    max-width: 800px;
+    min-width: 650px;
+    height: 70%;
+    background-color: #66A137;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    align-self: center; 
+    border-radius: 5px;
+    color: white;  
+    display: flex;
+    flex-direction: column;      
+}
+
+.pageLayout > h1 {
+    align-self: center;
+    background-color: #66A137;
+}
+
+.signInInstruction {
+    text-align: center;
+    background-color: #66A137;
+}
+
+.signInLabel {
+    margin-bottom: 0px;
+}
+
+.signInText {
+    height: 30px;
+}
+
+.RapPhoto {
+    background-color: white;
+    width: 50%;
+    height: 45%;
+    border-radius: 50%;
+    align-self: center;
+}
+.Rating{
+    margin-top: 5px;;
+    display:flex;
+    justify-content: center;
+}
+
+.Star {
+    width: 50px;
+    height:50px;
+}
+
+.infoHold {
+    display: flex;
+}
+
+.RapInfoLabel {
+    width: 50%;
+    display: flex;
+    flex-direction: column;    
+    align-items: flex-end;
+}
+/*END Mechanic Profile CSS-----------------------------*/
