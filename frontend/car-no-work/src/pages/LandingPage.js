@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import Axios from 'axios';
 
 class LandingPage extends React.Component {
 
