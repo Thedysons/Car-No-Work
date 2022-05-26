@@ -6,7 +6,12 @@ import './App.css';
 import SignUp from "./pages/SignUp"
 import RapProfilePage from "./pages/RapProfilePage"
 import LandingPage from "./pages/LandingPage"
-function App() {   
+import CustomerSignUp from "./pages/CustomerSignUp";
+
+
+
+function App() {  
+        
     return (
         <BrowserRouter>
             <div>
@@ -19,6 +24,8 @@ function App() {
                             <Route path="/LandingPage" element={<LandingPage />} />  
                             <Route path="/SignUp" element={<SignUp />} /> 
                             <Route path="/RapProfilePage" element={<RapProfilePage />} /> 
+                            <Route path="/customerSignUp" element={<CustomerSignUp />} /> 
+
                         </Routes>
                     </div>
                 </div>
@@ -27,5 +34,9 @@ function App() {
         </BrowserRouter>
     
     )
+
 }
 export default App;
+
+        
+    
