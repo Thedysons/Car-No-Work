@@ -8,7 +8,7 @@ import RapProfilePage from "./pages/RapProfilePage"
 import LandingPage from "./pages/LandingPage"
 import CustomerSignUp from "./pages/CustomerSignUp";
 import CustomerSubPayment from "./pages/CustomerSubPayment";
-
+import GuestCustomerPayment from "./pages/GuestCustomerPayment";
 
 
 function App() {  
@@ -27,6 +27,7 @@ function App() {
                             <Route path="/RapProfilePage" element={<RapProfilePage />} /> 
                             <Route path="/customerSignUp" element={<CustomerSignUp />} /> 
                             <Route path="/customerSubscriptionPayment" element={<CustomerSubPayment />} /> 
+                            <Route path="/guestCustomerPayment" element={<GuestCustomerPayment />} /> 
                         </Routes>
                     </div>
                 </div>
