@@ -78,7 +78,7 @@ input {
     max-width: 800px;
     min-width: 650px;
     height: 70%;
-    box-shadow: 0px 4px 4px 0px #00000040;
+   
     align-self: center; 
     border-radius: 5px;
     color: black;  
@@ -89,6 +89,8 @@ input {
 }
 
 .pageLayout > h1 {
+    margin-top: 20px;
+    margin-bottom: 10px;
     align-self: center;
 }
 
