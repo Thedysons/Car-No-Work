@@ -6,7 +6,6 @@ export default function MechanicSignIn() {
         <div className ="cusFormLayout">
         <h1>Mechanic Sign Up</h1>
                 <p className="signInInstruction"> Please enter your login details so we may retrieve your infomation and evaluate your skills.</p>
-                
                 <form className = "signUpStructure">
                     <p className="signInEmail">Email: </p>
                     <input type ="text" className="signInText" placeholder="email"></input>
