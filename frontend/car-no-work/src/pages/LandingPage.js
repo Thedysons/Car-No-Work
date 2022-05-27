@@ -1,8 +1,7 @@
 import React from 'react';
-import Axios from 'axios';
 
 class LandingPage extends React.Component {
-
+  
   render(){
   return (
   

@@ -6,7 +6,9 @@ import './App.css';
 import SignUp from "./pages/SignUp"
 import RapProfilePage from "./pages/RapProfilePage"
 import LandingPage from "./pages/LandingPage"
+import APItest from "./pages/APItest"
 function App() {   
+    
     return (
         <BrowserRouter>
             <div>
@@ -15,7 +17,7 @@ function App() {
                     <div>
                         <Routes>
                             {/* add routes, unordered atm */}
-                            <Route path="/" element={<RapProfilePage />} />  
+                            <Route path="/" element={<APItest />} />  
                             <Route path="/LandingPage" element={<LandingPage />} />  
                             <Route path="/SignUp" element={<SignUp />} /> 
                             <Route path="/RapProfilePage" element={<RapProfilePage />} /> 
