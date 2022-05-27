@@ -10,6 +10,7 @@ import CustomerSignUp from "./pages/CustomerSignUp";
 import CustomerSubPayment from "./pages/CustomerSubPayment";
 import GuestCustomerPayment from "./pages/GuestCustomerPayment";
 import CustomerHome from "./pages/CustomerHome"
+import MechanicSignIn from "./pages/MechanicSignIn";
 
 
 function App() {  
@@ -29,7 +30,8 @@ function App() {
                             <Route path="/customerSignUp" element={<CustomerSignUp />} /> 
                             <Route path="/customerSubscriptionPayment" element={<CustomerSubPayment />} /> 
                             <Route path="/guestCustomerPayment" element={<GuestCustomerPayment />} /> 
-                            <Route path="/CustomerHome" element={<CustomerHome />} /> 
+                            <Route path="/CustomerHome" element={<CustomerHome />} />
+                            <Route path="/MechanicSignIn" element={<MechanicSignIn />} /> 
                         </Routes>
                     </div>
                 </div>
