@@ -16,7 +16,7 @@ export default function RapProfilePage() {
                     <FaStar className = "Star"/>
                     <FaStar className = "Star" />
                 </div>
-                <button>See Reviews</button>
+                <button className="mechProfileButtons">See Reviews</button>
                 <div className="infoHold">
                     <div className="RapInfoLabel">
                         <p>Car:</p>
@@ -26,8 +26,8 @@ export default function RapProfilePage() {
                     </div>
                 </div>
 
-                <button>Job History</button>
-                <button>Job Requests</button>
+                <button className="mechProfileButtons" >Job History</button>
+                
                 <Link to="/LandingPage">click to go to landing page</Link>
             </div>
         </div>

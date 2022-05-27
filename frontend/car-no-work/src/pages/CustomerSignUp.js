@@ -20,8 +20,7 @@ export default function CustomerSignUp() {
                     <p className="signInLabel">Date of Birth: </p>
                     <input type ="text" className="signInText"  placeholder="dd/mm/yy"></input>
                     <button className="submitButton">Create account</button>
-                </form>
-                
+                </form>    
                
                 
                 
