@@ -15,7 +15,7 @@ function App() {
                     <div>
                         <Routes>
                             {/* add routes, unordered atm */}
-                            <Route path="/" element={<RapProfilePage />} />  
+                            <Route path="/" element={<LandingPage />} />  
                             <Route path="/LandingPage" element={<LandingPage />} />  
                             <Route path="/SignUp" element={<SignUp />} /> 
                             <Route path="/RapProfilePage" element={<RapProfilePage />} /> 
