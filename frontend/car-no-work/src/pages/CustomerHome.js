@@ -11,11 +11,14 @@ export default function CustomerHome() {
                     <textarea rows= "10" className="crashDetails"></textarea>
                     <div className ="requestService">                   
                             <button className="serviceButton">Request Service</button>
-                            <p className= "serviceSent"><TiTick className ="test"/></p>                    
-                    </div>
-                    <p className="CusHomeLabel">distance: </p>
-                    <p className="CusHomeLabel">time:</p>
-                
+                            <div className= "lblHolder">
+                                <div className= "driverAcceptedDisplay">Driver Accepted</div>
+                                <p className="CusHomeLabel">Distance: </p>
+                                <p className="CusHomeLabel">Time:</p> 
+                                <p className="CusHomeLabel">Number Plate:</p>                                 
+                            </div>                                                                      
+                    </div>                    
+                    <button className = "driverDetails">See Driver Details</button>  
             </div>
         </div>
     )
