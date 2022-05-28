@@ -1,6 +1,13 @@
 import React from "react"
-import {TiTick} from "react-icons/ti"
-export default function CustomerHome() {
+import {useNavigate} from "react-router-dom"
+export default function CustomerHome(props) {
+    const navigate = useNavigate()
+    
+    function openRAP() {
+        navigate("/RapProfilePage")
+    }
+    
+
     return (
         <div className = "pageBackground">
             <div className ="pageLayout">
@@ -18,7 +25,7 @@ export default function CustomerHome() {
                                 <p className="CusHomeLabel">Number Plate:</p>                                 
                             </div>                                                                      
                     </div>                    
-                    <button className = "driverDetails">See Driver Details</button>  
+                    <button className = "driverDetails" onClick={openRAP}>See Driver Details</button>  
             </div>
         </div>
     )

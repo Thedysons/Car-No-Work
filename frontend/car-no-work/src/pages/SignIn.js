@@ -1,6 +1,14 @@
 import React from "react"
+import { useNavigate } from "react-router-dom";
 
-export default function SignIn() {
+export default function SignIn(props) {
+    const navigate = useNavigate();
+
+    function signIn() {
+        navigate("/CustomerHome")
+        props.changeUser("member")
+    }   
+
     return (
         <div className= "pageBackground">
             <div className= "cusFormLayout">
@@ -13,7 +21,7 @@ export default function SignIn() {
                     <input type ="text" className="signInText" placeholder="enter password" ></input>
                     
                 </form>
-                <button className="submitButton">Sign In</button>
+                <button className="submitButton" onClick ={signIn}>Sign In</button>
                 <p className="signInInstruction"> Dont have an account? Sign up</p>                 
             </div>
         </div>
