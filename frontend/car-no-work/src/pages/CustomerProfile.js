@@ -9,16 +9,15 @@ export default function CustomerProfile() {
                 <img src={him} className="RapPhoto" alt='him'/>
                 
                 <div className="infoHold">
-                    <div className="RapInfoLabel">
+                    <div className="cusInfoLabel">
                         <p>Car:</p>
                         <p>Num Of Rquests:</p>
-                        <p>Date of Birth:</p>
-                        
+                        <p>Date of Birth:</p>                        
                     </div>
                 </div>
 
-                              
-                <Link to="/LandingPage">click to go to landing page</Link>
+                <button className="submitButton">Claim History</button>                                   
+               
             </div>
         </div>
     )
