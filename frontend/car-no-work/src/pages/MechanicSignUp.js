@@ -1,6 +1,12 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 
 export default function MechanicSignIn() {
+    const navigate = useNavigate()
+    function goHome() {
+        navigate("/MechanicHomePage")
+    }
+
     return (
     <div className = "pageBackground">
         <div className ="cusFormLayout">
@@ -19,7 +25,7 @@ export default function MechanicSignIn() {
                     <input type ="text" className="signInText"  placeholder="dd/mm/yy"></input>
                     <p className="signInLabel">Car Number Plate: </p>
                     <input type ="text" className="signInText"  placeholder="enter number plate"></input>
-                    <button className="submitButton">Create account</button>
+                    <button className="submitButton" onClick={goHome}>Create account</button>
                 </form>                
         </div>        
     </div>

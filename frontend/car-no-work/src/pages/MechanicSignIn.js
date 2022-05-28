@@ -9,6 +9,10 @@ export default function MechanicSignIn(props) {
         props.changeUser("mechanic")
     }
 
+    function signUp() {
+        navigate("/MechanicSignUp")
+    }
+
     return (
         <div className= "pageBackground">
             <div className= "cusFormLayout">
@@ -22,7 +26,7 @@ export default function MechanicSignIn(props) {
                     
                 </form>
                 <button className="submitButton" onClick={signIn} >Sign In</button>
-                <p className="signInInstruction"> Dont have an account? Sign up</p>                 
+                <p className="signInInstruction" onClick={signUp}> Dont have an account? Sign up</p>                 
             </div>
         </div>
     )

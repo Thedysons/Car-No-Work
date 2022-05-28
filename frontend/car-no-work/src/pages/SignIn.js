@@ -1,5 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom";
+import CustomerSignUp from "./CustomerSignUp";
 
 export default function SignIn(props) {
     const navigate = useNavigate();
@@ -8,6 +9,11 @@ export default function SignIn(props) {
         navigate("/CustomerHome")
         props.changeUser("member")
     }   
+
+    function SignUp() {
+        navigate("/SignUp")
+    }
+
 
     return (
         <div className= "pageBackground">
@@ -22,7 +28,7 @@ export default function SignIn(props) {
                     
                 </form>
                 <button className="submitButton" onClick ={signIn}>Sign In</button>
-                <p className="signInInstruction"> Dont have an account? Sign up</p>                 
+                <p className="signInInstruction" onClick={SignUp}> Dont have an account? Sign up</p>                 
             </div>
         </div>
     )
