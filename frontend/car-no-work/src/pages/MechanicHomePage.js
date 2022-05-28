@@ -9,8 +9,10 @@ export default function MechanicHomePage() {
                 <div>
                     <p>(List of requests)</p>
                 </div>
-                <button>Accept Request</button>
-                <button>Deny Request</button>
+                <div className="mechHomeButtonLayout">
+                    <button className="submitButton">Accept Request</button>
+                    <button className="submitButton">Deny Request</button>
+                </div>
             </div>
         </div>
     )
