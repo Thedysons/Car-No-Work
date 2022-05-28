@@ -1,6 +1,7 @@
 export const menuData = [
     {title: 'Sign Up', link: '/SignUp'},
-    {title: 'Sign In', link: '/SignIn'},    
+    {title: 'Sign In', link: '/SignIn'},  
+    {title: 'Plans and Prices', link:'/PlansAndPrices'}  
 ];
 
 export const mechData =[

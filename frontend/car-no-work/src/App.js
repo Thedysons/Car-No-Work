@@ -14,7 +14,7 @@ import MechanicSignUp from "./pages/MechanicSignUp";
 import MechanicHomePage from "./pages/MechanicHomePage";
 import CustomerProfile from "./pages/CustomerProfile"
 import MechanicSignIn from "./pages/MechanicSignIn";
-
+import PlansAndPrices from "./pages/PlansAndPrices";
 
 function App() {  
     const [userType, setUserType] = React.useState("")
@@ -43,6 +43,7 @@ function App() {
                             <Route path="/CustomerProfile" element={<CustomerProfile />} /> 
                             <Route path="/MechanicSignIn" 
                                 element={<MechanicSignIn changeUser={userType => setUserType(userType)}/>} /> 
+                            <Route path="/PlansAndPrices" element={<PlansAndPrices/>} />
 
                         </Routes>
                     </div>
