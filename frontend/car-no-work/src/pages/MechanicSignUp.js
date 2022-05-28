@@ -25,6 +25,8 @@ export default function MechanicSignIn() {
                     <input type ="text" className="signInText"  placeholder="dd/mm/yy"></input>
                     <p className="signInLabel">Car Number Plate: </p>
                     <input type ="text" className="signInText"  placeholder="enter number plate"></input>
+                    <p className="signInLabel">Car Model: </p>
+                    <input type ="text" className="signInText"  placeholder="enter Car Model"></input>
                     <button className="submitButton" onClick={goHome}>Create account</button>
                 </form>                
         </div>        
