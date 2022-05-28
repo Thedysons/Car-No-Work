@@ -13,5 +13,6 @@ export const mechData =[
 export const memberData=[
     {title: 'Sign In', link: '/SignIn'},
     {title: 'Home', link: '/CustomerHome'},
-    {title: 'Profile', link: '/CustomerProfile'}
+    {title: 'Profile', link: '/CustomerProfile'},
+    {title: 'Plans and Prices', link:'/PlansAndPrices'}  
 ]
