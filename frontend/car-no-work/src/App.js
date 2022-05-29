@@ -50,8 +50,7 @@ function App() {
                     <div>
                         <Routes>
                             {/* add routes, unordered atm */}
-                            <Route path="/RapProfilePage" element={<RapProfilePage
-                                                            mech = {dummyMechanic} />} />  
+                            <Route path="/RapProfilePage" element={<RapProfilePage/>} />  
                             <Route path="/*" element={<LandingPage changeUser={userType=> setUserType(userType)}/>} />   
                             <Route path="/SignIn" element={<SignIn 
                                         changeUser={userType => setUserType(userType)}

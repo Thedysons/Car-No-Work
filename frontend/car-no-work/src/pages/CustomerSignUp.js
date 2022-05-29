@@ -59,8 +59,7 @@ export default function CustomerSignUp(props) {
                     <button className="submitButton" onClick={handleCustomer}>Create account</button>
                 </form>    
                
-               <button onClick={log}>temp</button>
-                
+                           
                 
             </div>
             
