@@ -1,4 +1,57 @@
 {% extends 'rapProfile.html' %} 
 {%block contentA%}
     <h1>Welcome to job completion</h1>
+    <h3>Here is the information of your job</h3>
+    <table class="table table-dark table-hover">
+        <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Problem</th>
+        <th scope="col">Location</th>
+        <th scope="col">Plate Number</th>
+        <th scope="col">Car Model</th>
+        <th scope="col">Progress on Claim</th>
+        <th scope="col">Your rating</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <th scope="row">{{1}}</th>
+            <td>{{current[0][0]}}</td>
+            <td>{{current[0][1]}}</td>
+            <td>{{current[0][2]}}</td>
+            <td>{{current[0][3]}}</td>
+            <td>{{current[0][4]}}</td>
+            <td>Client has not submitted a rating yet</td>
+
+            </tr>        
+        </tbody>
+    </table>
+    <h4><b>Complete the form and submit to complete job</b></h4>
+    <div class="container w-50">
+        <form method="POST" action="">
+            {{jobCompleted.hidden_tag()}}
+            <fieldset>
+                <div class="form-group">
+                    {{jobCompleted.report.label(class="form-control-label")}}
+                    {{jobCompleted.report(class="form-control form-control-lg")}} 
+                </div>
+                <div class="form-group mt-4">
+                    {{jobCompleted.submit(class='btn btn-primary')}}
+                </div>
+            </fieldset>
+    </form>
+    </div>
+
+    <div>
+        {%with messages=get_flashed_messages(with_categories=true)%}
+              {%if messages%}
+                {%for category,message in messages%}
+                  <div class="alert alert-{{category}}">
+                    {{message}}
+                  </div>
+                {%endfor%}
+              {%endif%}
+            {%endwith%}
+        </div>
 {%endblock contentA%}

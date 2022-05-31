@@ -25,13 +25,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{url_for('rapProfile')}}">Home</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="{{url_for('viewRequests')}}">View requests</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('viewRequests')}}">History of Jobs taken</a>
           </li>
 
           <li class="nav-item">
@@ -42,7 +36,9 @@
             <a class="nav-link" href="{{url_for('jobProgress')}}">Progress of your current job</a>
           </li>
 
-          
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('historyOfJobs')}}">History of Jobs taken</a>
+          </li>
         </ul>
       </div>
     </div>

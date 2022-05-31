@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, SelectField
+from wtforms import StringField, PasswordField, SubmitField, SelectField, TextAreaField
 from wtforms.validators import DataRequired, Length, EqualTo, Email
 
 class SignUpForm(FlaskForm):
@@ -55,3 +55,7 @@ class arrivedForm(FlaskForm):
 
 class finishJobForm(FlaskForm):
      submit = SubmitField(label="Click to finish job")
+
+class completeJobForm(FlaskForm):
+    report = TextAreaField(u'Report and final notes on job', validators =[Length(max=600)])
+    submit = SubmitField(label="Click to confirm completion of job")

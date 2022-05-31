@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-   
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,9 +22,6 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{{url_for('clientProfile')}}">Home</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="{{url_for('requestHelp')}}">Make a request</a>
           </li>
           <li class="nav-item">
@@ -35,15 +29,15 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="{{url_for('claim_progress')}}">Claim progress</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('claim_history')}}">Your History of Claims</a>
+            <a class="nav-link" href="{{url_for('claim_progress')}}">Request progress</a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link" href="{{url_for('clientNotifications')}}">Notifications</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('historyOfRequests')}}">Your History of Requests</a>
           </li>
           
         </ul>
@@ -59,8 +53,6 @@
         </li>
       </ul>
   </nav>
-
- 
   </head>
   <body>
     {%block contentA%} 

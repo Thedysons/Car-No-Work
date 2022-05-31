@@ -1,6 +1,6 @@
 from codejana_flask import app, db
 from flask import render_template, url_for, redirect, flash, request
-from codejana_flask.forms import SignUpForm, LoginForm, RequestHelpForm, PaymentOption, MockCreditCardPayment, TakeJobForm, StartJobForm, arrivedForm, finishJobForm
+from codejana_flask.forms import SignUpForm, LoginForm, RequestHelpForm, PaymentOption, MockCreditCardPayment, TakeJobForm, StartJobForm, arrivedForm, finishJobForm, completeJobForm
 from codejana_flask.models import User
 
 @app.route('/')
@@ -74,6 +74,8 @@ rap_jobs = []   # this will hold requests by users but specifically made to be s
 rap_jobs_taken = []
 job_started = []
 arrival = []
+job_completed=[]
+requests_completed=[]
 @app.route('/requestHelp', methods=['POST', 'GET'])
 def requestHelp():
     form=RequestHelpForm()
@@ -190,4 +192,19 @@ def jobProgress():
 
 @app.route('/jobComplete', methods=['POST', 'GET'])
 def jobComplete():
-    return render_template('jobComplete.html', title='Job complete')
+    jobCompleted= completeJobForm()
+    if jobCompleted.validate_on_submit():
+        # job_completed consists of the client's problem, the client's location, client's plate number, client's model, final report submitted, and rating
+        job_completed.append([rap_jobs_taken[0][0], rap_jobs_taken[0][1], rap_jobs_taken[0][2], rap_jobs_taken[0][3], request.form.get('report'), 'No rating submited'])
+
+        requests_completed.append([rap_jobs_taken[0][0], rap_jobs_taken[0][1], rap_jobs_taken[0][2], rap_jobs_taken[0][3], request.form.get('report'), 'No rating submited'])
+        flash(f'You have completed this job, good job.', category='success')
+    return render_template('jobComplete.html', current=rap_jobs_taken, title='Job complete', jobCompleted=jobCompleted)
+
+@app.route('/historyOfRequests', methods=['POST', 'GET'])
+def historyOfRequests():
+    return render_template('historyOfRequests.html', requests_completed=requests_completed, title='History of requests')
+
+@app.route('/historyOfJobs', methods=['POST', 'GET'])
+def historyOfJobs():
+    return render_template('historyOfJobs.html', jh=job_completed, title='History of jobs')
