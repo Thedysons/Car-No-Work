@@ -59,3 +59,7 @@ class finishJobForm(FlaskForm):
 class completeJobForm(FlaskForm):
     report = TextAreaField(u'Report and final notes on job', validators =[Length(max=600)])
     submit = SubmitField(label="Click to confirm completion of job")
+
+class forgotPasswordForm(FlaskForm):
+    forgotPassword = StringField(label="Enter your email to reset your password",  validators=[DataRequired(), Email()])
+    submit = SubmitField(label="Submit")

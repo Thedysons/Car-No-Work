@@ -1,6 +1,6 @@
 from codejana_flask import app, db
 from flask import render_template, url_for, redirect, flash, request
-from codejana_flask.forms import SignUpForm, LoginForm, RequestHelpForm, PaymentOption, MockCreditCardPayment, TakeJobForm, StartJobForm, arrivedForm, finishJobForm, completeJobForm
+from codejana_flask.forms import SignUpForm, LoginForm, RequestHelpForm, PaymentOption, MockCreditCardPayment, TakeJobForm, StartJobForm, arrivedForm, finishJobForm, completeJobForm, forgotPasswordForm
 from codejana_flask.models import User
 
 @app.route('/')
@@ -208,3 +208,22 @@ def historyOfRequests():
 @app.route('/historyOfJobs', methods=['POST', 'GET'])
 def historyOfJobs():
     return render_template('historyOfJobs.html', jh=job_completed, title='History of jobs')
+
+@app.route('/plansAndPrices', methods=['POST', 'GET'])
+def plansAndPrices():
+    return render_template('plansAndPrices.html', title='Plans and Prices')
+
+@app.route('/help', methods=['POST', 'GET'])
+def help():
+    return render_template('help.html', title='Help Page')
+
+@app.route('/guest', methods=['POST', 'GET'])
+def guest():
+    return render_template('guest.html', title='Guest Page')
+
+@app.route('/forgotPassword', methods=['POST', 'GET'])
+def forgotPassword():
+    forgotPassword=forgotPasswordForm()
+    if forgotPassword.validate_on_submit():
+        flash(f'Details to reset your password has been sent to your email', category='success')
+    return render_template('forgotPassword.html', title='Forgot Password', forgotPassword=forgotPassword)
