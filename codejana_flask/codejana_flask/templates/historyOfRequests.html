@@ -15,7 +15,7 @@
     <th scope="col">Your Plate Number</th>
     <th scope="col">Your Car Model</th>
     <th scope="col">Mechanics report</th>
-    <th scope="col">You have not yet given a rating</th>
+    <th scope="col">Your rating</th>
     </tr>
     </thead>
     <tbody>
@@ -30,7 +30,12 @@
             <td>{{requests_completed[i][2]}}</td>
             <td>{{requests_completed[i][3]}}</td>
             <td>{{requests_completed[i][4]}}</td>
-            <td>{{requests_completed[i][5]}}</td>
+            {% if requests_completed[i][5] == 'No rating submited' %}
+                <td><a class="nav-link active" aria-current="page" href="{{url_for('ratings')}}">Submit rating</a></td>
+            {% else %}
+                <td>{{requests_completed[i][5]}}</td>
+            {% endif %}
+            <td><a class="nav-link active" aria-current="page" href="{{url_for('download')}}">Download report</a></td>
             </tr>
         {% endfor %}
     </tbody>

@@ -20,10 +20,10 @@ class ForgotPasswordForm(FlaskForm):
 
 
 class RequestHelpForm(FlaskForm):
-    problem_description = StringField(label="Enter your problem")
-    location = StringField(label="Enter your location")
-    plate_number = StringField(label="Enter your plate number")
-    car_model = StringField(label="Enter your car model")
+    problem_description = StringField(label="Enter your problem", validators=[DataRequired()])
+    location = StringField(label="Enter your location", validators=[DataRequired()])
+    plate_number = StringField(label="Enter your plate number", validators=[DataRequired()])
+    car_model = StringField(label="Enter your car model", validators=[DataRequired()])
     next = SubmitField(label="Next")
 
 class PaymentOption(FlaskForm):
@@ -63,3 +63,8 @@ class completeJobForm(FlaskForm):
 class forgotPasswordForm(FlaskForm):
     forgotPassword = StringField(label="Enter your email to reset your password",  validators=[DataRequired(), Email()])
     submit = SubmitField(label="Submit")
+
+class ratingForm(FlaskForm):
+    job_number = StringField(label="Enter Job number to give rating to")
+    give_rating = StringField(label="Give rating out of 5")
+    submit = SubmitField(label="Submit Rating")

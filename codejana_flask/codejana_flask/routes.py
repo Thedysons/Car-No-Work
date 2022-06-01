@@ -1,6 +1,6 @@
 from codejana_flask import app, db
 from flask import render_template, url_for, redirect, flash, request
-from codejana_flask.forms import SignUpForm, LoginForm, RequestHelpForm, PaymentOption, MockCreditCardPayment, TakeJobForm, StartJobForm, arrivedForm, finishJobForm, completeJobForm, forgotPasswordForm
+from codejana_flask.forms import SignUpForm, LoginForm, RequestHelpForm, PaymentOption, MockCreditCardPayment, TakeJobForm, StartJobForm, arrivedForm, finishJobForm, completeJobForm, forgotPasswordForm, ratingForm
 from codejana_flask.models import User
 
 @app.route('/')
@@ -227,3 +227,18 @@ def forgotPassword():
     if forgotPassword.validate_on_submit():
         flash(f'Details to reset your password has been sent to your email', category='success')
     return render_template('forgotPassword.html', title='Forgot Password', forgotPassword=forgotPassword)
+
+@app.route('/ratings', methods=['POST', 'GET'])
+def ratings():
+    rating=ratingForm()
+    if rating.validate_on_submit():
+        if rating.job_number.data != '':
+            index = int(request.form.get('job_number')) -1
+            if rating.give_rating.data != '':
+                requests_completed[index][-1] = request.form.get('give_rating')
+                job_completed[index][-1] = request.form.get('give_rating')
+    return render_template('ratings.html', requests_completed=requests_completed, title='Ratings page', rating=rating)
+
+@app.route('/download', methods=['POST', 'GET'])
+def download():
+    return render_template('download.html', title='Download page')
