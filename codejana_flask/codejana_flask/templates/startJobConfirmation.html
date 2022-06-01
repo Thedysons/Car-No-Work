@@ -1,0 +1,12 @@
+{% extends 'rapProfile.html' %} 
+{%block contentA%}
+<h1>Job Confirmed</h1>
+<h2><u>The following information was sent to the user:</u></h2>
+<h3>
+    Your job has been confirmed by {{job_started[0][3]}}. <br>
+    {{job_started[0][3]}} will arrive approximately in {{job_started[0][0]}}.
+</h3>
+
+
+
+{%endblock contentA%}

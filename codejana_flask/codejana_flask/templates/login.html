@@ -31,8 +31,17 @@
                 
             </div>
         </fieldset>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">Client</option>
+            <option value="2">Mechanic</option>
+          </select>
         <div class="form-group mt-4">
             {{form.submit(class='btn btn-primary')}}
+        </div>
+        <br>
+        <div>
+            <a href="{{url_for('forgotPassword')}}">Forgot Password?</a>
         </div>
 
     </form>

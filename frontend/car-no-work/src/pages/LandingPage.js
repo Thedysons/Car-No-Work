@@ -1,24 +1,8 @@
-import React from 'react'
-import { useNavigate } from "react-router-dom"
+import React from 'react';
 
-
-
-export default  function LandingPage(props) {
-
-  const navigate =useNavigate()
-
-  function changePage(e) {
-    
-    if(e.target.value === "mechanic") {
-      navigate("/MechanicSignIn")
-    } else if (e.target.value === "guest") {
-      navigate("/CustomerHome")
-      props.changeUser("guest")
-    }  else if (e.target.value === "member") {
-       navigate("/SignIn")
-    }          
-  } 
- 
+class LandingPage extends React.Component {
+  
+  render(){
   return (
     <div>
      
@@ -37,6 +21,7 @@ export default  function LandingPage(props) {
      
     </div>
   )
+}
 }
 
 

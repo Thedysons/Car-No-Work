@@ -1,0 +1,31 @@
+{% extends 'rapProfile.html' %} 
+{%block contentA%}
+<h1>Start Your Job</h1>
+<div class="container w-50">
+    <form method="POST" action="">
+        {{start_form.hidden_tag()}}
+        <fieldset>
+            <div class="form-group">
+                {{start_form.distance.label(class="form-control-label")}}
+                {{start_form.distance(class="form-control form-control-lg")}} 
+            </div>
+            <div class="form-group">
+                {{start_form.location.label(class="form-control-label")}}
+                {{start_form.location(class="form-control form-control-lg")}} 
+            </div>
+            <div class="form-group">
+                {{start_form.time.label(class="form-control-label")}}
+                {{start_form.time(class="form-control form-control-lg")}} 
+            </div>
+            <div class="form-group">
+                {{start_form.name.label(class="form-control-label")}}
+                {{start_form.name(class="form-control form-control-lg")}} 
+            </div>
+            <div class="form-group mt-4">
+                {{start_form.submit(class='btn btn-primary')}}
+            </div>
+        </fieldset>
+</form>
+</div>
+
+{%endblock contentA%}
