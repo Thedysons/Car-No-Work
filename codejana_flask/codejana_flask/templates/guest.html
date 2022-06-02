@@ -33,7 +33,7 @@
     box-shadow: 0px 4px 4px 0px #00000040;
     border-style: none;
     color: white;
-    background-color: black;
+    background-color: #1b2653;
     margin-right: 10px;    
     display: flex;
     justify-content: center;
@@ -45,15 +45,21 @@
 <div class = "pageBackground">
     <div class ="pageLayout">
         <h1>Welcome Guest</h1>        
-            
-        <a class ="serviceButton" href="{{url_for('requestHelp')}}">                 
-            Request Service
-        </a>
-            <h3 style="text-align: center; margin-top: 10px; width: 70%;">
-                Register an account for potential savings and better convenience</h3>                 
+        <div style ="display: flex; width: 100%;">   
+            <a class ="serviceButton" href="{{url_for('requestHelp')}}">                 
+                Request Service
+            </a>
+            <a class ="serviceButton" href="{{url_for('plansAndPrices')}}">
+                View our payment options
+            </a> 
+        </div>   
+
+        <h3 style="text-align: center; margin-top: 10px; width: 70%;">
+            Register an account for potential savings and better convenience</h3>                 
               
-        <a class ="serviceButton" href="{{url_for('plansAndPrices')}}">
-            or view our payment options</a>    </div>
+          
+        
+    </div>
 </div>
 
 {%endblock contentA%}
