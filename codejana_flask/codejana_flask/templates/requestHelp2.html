@@ -1,7 +1,31 @@
 {% extends 'clientProfile.html' %} 
 {%block contentA%} 
-<h1>Make a request -- Page 2</h1>
-<h2>Select a payment option:</h2>
+<style>
+
+.col{
+    justify-content: center;
+    height: 450px;
+    width: 40%;
+    margin:40px;
+    padding: 10px;
+    background-color: #1b2653;
+    background-color: rgba(169, 245, 188, 0.815);
+    border-radius: 20px;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777; 
+}
+
+
+
+h1, h2{
+  text-align: center;
+}
+
+</style>
+<h1 style="text-align: center; color: white;">Make a request -- Page 2</h1>
+<h2 style="text-align: center; color: white;">Select a payment option:</h2>
 <!-- <div class="container w-50">
 <form method="POST" action="">
   {{ form.hidden_tag() }}
@@ -19,19 +43,19 @@
 
 <div class="containerC">
   <div class="row">
-    <div class="colB">
+    <div class="col">
       <h1>Yearly Membership!</h1>
-      <a href="{{url_for('membership')}}" class="btn btn-primary" role="button" data-bs-toggle="button">Membership</a>
       <ul>
         <li>Pay $200 for unlimted support</li>
       </ul>
+      <a href="{{url_for('membership')}}" class="btn btn-primary" role="button" data-bs-toggle="button">Membership</a>
     </div>
-    <div class="colB">
+    <div class="col">
       <h1>One off payment</h1>
-      <a href="{{url_for('one_off_payment')}}" class="btn btn-secondary" role="button" data-bs-toggle="button">One Off Payment</a>
       <ul>
         <li>Pay $50 for one off payment</li>
       </ul>
+      <a href="{{url_for('one_off_payment')}}" class="btn btn-secondary" role="button" data-bs-toggle="button">One Off Payment</a>
     </div>
 
 
