@@ -95,7 +95,11 @@
           border-style: none;
           color: white;
           background-color: #1b2653;
-;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
       }
 
       .infoHold {
@@ -121,11 +125,10 @@
        
 
           <img src="{{url_for('static',filename='theme_pics/mechanic.png')}}" className="RapPhoto" alt='him'/> <!--Photo will replace this-->
-          <button class="mechProfileButtons">See Reviews</button>
+          <a class="mechProfileButtons" href="">See Reviews/ratings</a>
          
                  
       </div>
   </div> 
-    <p>Welcome {{current_rap[-1]}}</p>
     {%endblock contentA%} 
   </body>
