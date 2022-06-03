@@ -110,12 +110,12 @@
     </style>
 
 
- <!--   <h1><b>Welcome to your profile page</b></h1>
+   <h1><b>Welcome to your profile page</b></h1>
     <div class= "pageBackground">
       <div class="pageLayout">
           <h1 style="margin: 30px;">(Mechanic Name)</h1>
-       <img src={him} className="RapPhoto" alt='him'/>
-          <div class ="RapPhoto"></div>  Photo will replace this
+       <!--<img src={him} className="RapPhoto" alt='him'/> -->
+          <div class ="RapPhoto"></div>  <!--Photo will replace this-->
           <button class="mechProfileButtons">See Reviews</button>
           <div class="infoHold">
               <div class="RapInfoLabel">
@@ -134,7 +134,7 @@
           <button class="mechProfileButtons" >Job History</button>
                  
       </div>
-  </div> -->
-    <p>Welcome {{current_rap[0]}}</p>
+  </div> 
+    <p>Welcome {{current_rap[-1]}}</p>
     {%endblock contentA%} 
   </body>
