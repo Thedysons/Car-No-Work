@@ -1,5 +1,7 @@
 {% extends 'rapProfile.html' %} 
 {%block contentA%}
+<div style="display: flex; flex-direction: column; align-items: center;">
+    <div style="padding: 20px; margin-top: 5%; width: 80%;"> 
 <h1>Here is a list of all your completed jobs</h1>
 {% set hoj = namespace(bool2=false) %}
 <div>
@@ -47,5 +49,7 @@
         {% endif %}
     {% endif %}
     </div>
+</div>
+</div>
 </div>
 {%endblock contentA%}
