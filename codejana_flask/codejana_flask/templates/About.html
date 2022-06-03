@@ -1,4 +1,36 @@
 {% extends 'layouts.html' %} 
 {% block contentA%}
-<h1>Welcome to the about page</h1>
+<style>
+    h1 {
+        padding-left:1vw;
+        padding-top:5px;
+    }
+    p {
+        max-width: 20vw;
+        padding-left:2vw;
+        font-size: large;
+    }
+    .box {
+        max-width: 25vw;
+        padding:4vh;
+        background-color:#efefef;
+        box-shadow: 5px 10px #888888;
+    }
+</style>
+<div style="padding:4vh;margin:auto;">
+<div class="box">
+    <h1>About us</h1>
+    <p>
+        Car No Work is a service provider
+        for broken down vehicles. Request
+        a mechanic through our website to
+        get the closest mobile mechanic
+        nearest to you! Request through a
+        guest login or make an account today!
+    </p>
+</div>
+</div>
+
+
+<img style="opacity:0.2; max-height:40vh; max-width:40vw; margin:auto" src="{{url_for('static',filename='theme_pics/logoTransBlack.png')}}" class="d-block w-100 grow" alt="...">
 {%endblock contentA%}
