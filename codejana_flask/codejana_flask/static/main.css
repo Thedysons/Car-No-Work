@@ -27,6 +27,30 @@
     align-items: center;
     justify-content: center;
 }
+.containerC{
+    position:absolute;
+    top:100px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.colB{
+    height: 350px;
+    width: 30%;
+    margin:40px;
+    padding: 10px;
+    background-color: #1b2653;
+    background-color: rgba(169, 245, 188, 0.815);
+    border-radius: 20px;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777; 
+}
 
 .containerAReq{
     position:absolute;
