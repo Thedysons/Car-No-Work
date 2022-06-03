@@ -31,11 +31,11 @@ class PaymentOption(FlaskForm):
     next = SubmitField(label="Next")
 
 class MockCreditCardPayment(FlaskForm):
-    name = StringField(label="Name On Card", validators=[DataRequired(), Length(min=3, max=20)])
+    name = StringField(label="Cardholders Name", validators=[DataRequired(), Length(min=3, max=20)])
     card_number = StringField(label="Card Number", validators=[DataRequired(), Length(min=3, max=20)])
-    card_cv = StringField(label="Last 3 number on back of card", validators=[DataRequired(), Length(min=3, max=20)])
-    expiary_date =StringField(label="Expiry date of card (mm/yyyy)", validators=[DataRequired(), Length(min=3, max=20)])
-    submit = SubmitField(label="Make Payment")
+    card_cv = StringField(label="CVC", validators=[DataRequired(), Length(min=3, max=20)])
+    expiary_date =StringField(label="Expiry Date (mm/yyyy)", validators=[DataRequired(), Length(min=3, max=20)])
+    submit = SubmitField(label="Confirm Payment")
 
 class TakeJobForm(FlaskForm):
     accept_job = StringField(label="Accept Job (enter job number)")
