@@ -44,7 +44,9 @@
 </style>
 <div class = "pageBackground">
     <div class ="pageLayout">
-        <h1>Welcome Guest</h1>        
+        <h1 style="margin-bottom:0;">Welcome Guest</h1>  
+        <img style="height:50%; margin-top: 0; object-fit: contain;" src="{{url_for('static',filename='theme_pics/logoTransBlack.png')}}" class="d-block w-100 grow" alt="...">
+      
         <div style ="display: flex; width: 100%;">   
             <a class ="serviceButton" href="{{url_for('requestHelp')}}">                 
                 Request Service
