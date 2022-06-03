@@ -1,18 +1,23 @@
 {% extends 'clientProfile.html' %} 
 {%block contentA%}
-<h5>Information for a one of paymentp and what it will include:</h1>
-<ul>
-    <li>Cost: $50</li>
-    <li>The cost will cover your current request and not future requests</li>
-</ul>
-
-<h3><b>Your credit card details:</b></h3>
-
-<div class="container w-50">
-    <form method="POST" action="">
+<style>
+    .form-group {
+        padding: 6px;
+    }
+</style>
+<div style="background:#1b2653;
+height:95.6vh; width:100vw; padding:20vh 25vw">  
+<div class="container w-50" style="background:#fff;border-radius: 25px; ">
+    <form method="POST" action=""  style="padding:1vw">
         {{form.hidden_tag()}}
         <fieldset>
-            <legend class="border-bottom mb-4">Payment for $50</legend>
+            <img style="height:5vh;object-fit: contain;max-width:5vw;margin:auto;opacity:0.5" src="{{url_for('static',filename='theme_pics/logoTransBlack.png')}}" class="d-block w-100" alt="...">
+            <legend class="border-bottom mb-4" style="text-align:center;">One Time Payment</legend>
+            <div style="background:#c6c6c6;border-radius: 15px; display: flex;
+            justify-content:  space-between; padding:15px 10px;">
+                <b>Total:</b>
+                <b>$50.00AUD</b>
+            </div>
             <div class="form-group">
                 {{form.name.label(class="form-control-label")}}      
                 {{form.name(class="form-control form-control-lg")}}   
@@ -29,13 +34,17 @@
                 {{form.expiary_date.label(class="form-control-label")}}      
                 {{form.expiary_date(class="form-control form-control-lg")}}   
             </div>
+            <p style="opacity:0.7; font-size:small;">Please note this cost only covers one request, for a yearly subscription fee,
+               please see the Membership payment option. Terms and Conditions apply* </p> 
            
            
         </fieldset>
-        <div class="form-group mt-4">
+        <div class="form-group mt-4" style="text-align:center; padding: 2vh;">
             {{form.submit(class='btn btn-primary')}}
         </div>
 
     </form>
+</div>
+
 </div>
 {%endblock contentA%}
