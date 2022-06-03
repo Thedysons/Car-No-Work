@@ -116,25 +116,13 @@
  
     <div class= "pageBackground">
       <div class="pageLayout">
-          <h1 style="margin: 30px;">(Mechanic Name)</h1>
-       <!--<img src={him} className="RapPhoto" alt='him'/> -->
-          <div class ="RapPhoto"></div>  <!--Photo will replace this-->
+          <h1 style="margin: 30px;">Welcome {{current_rap[-1]}}</h1>
+       <!--<img src="{{url_for('static',filename='theme_pics/mechanic.png')}}" className="RapPhoto" alt='him'/> -->
+       
+
+          <img src="{{url_for('static',filename='theme_pics/mechanic.png')}}" className="RapPhoto" alt='him'/> <!--Photo will replace this-->
           <button class="mechProfileButtons">See Reviews</button>
-          <div class="infoHold">
-              <div class="RapInfoLabel">
-                  <p>Car: </p>
-                  <p>LicencePlate: </p>
-                  <p>Date of Birth: </p>                        
-              </div>
-              <div>
-              <p>(Car Model)</p>
-              <p>(NumberPlate)</p>
-              <p>(DateOfBirth)</p>  
-
-              </div>
-          </div>
-
-          <button class="mechProfileButtons" >Job History</button>
+         
                  
       </div>
   </div> 
