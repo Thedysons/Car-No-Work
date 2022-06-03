@@ -1,5 +1,8 @@
 {% extends 'rapProfile.html' %} 
 {%block contentA%}
+
+<div style="display: flex; flex-direction: column; align-items: center;">
+  <div style="padding: 20px; margin-top: 5%; width: 80%;"> 
 {% if current|length > 0 %}
     <h1>Job Confirmed</h1>
     <h2><u>The client has been notified that you are on your way.</u></h2>
@@ -40,4 +43,6 @@
 {% if arrival|length > 0 %}
 <a href="{{url_for('jobComplete')}}" class="btn btn-primary btn-lg">Click to finish job</a>
 {% endif %}
+</div>
+</div>
 {%endblock contentA%}
