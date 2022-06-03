@@ -1,0 +1,56 @@
+{% extends 'clientProfile.html' %} 
+{%block contentA%} 
+<h1>Ratings page</h1>
+<div>
+    <div class="container w-50">
+        <form method="POST" action="">
+            {{rating.hidden_tag()}}
+            <fieldset>
+                <div class="form-group">
+                    {{rating.job_number.label(class="form-control-label")}}
+                    {{rating.job_number(class="form-control form-control-lg")}} 
+                </div>
+                <div class="form-group">
+                    {{rating.give_rating.label(class="form-control-label")}}
+                    {{rating.give_rating(class="form-control form-control-lg")}} 
+                    
+                </div>
+                <div class="form-group mt-4">
+                    {{rating.submit(class='btn btn-primary')}}
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <table class="table table-dark table-hover">
+        <thead>
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Your Problem</th>
+        <th scope="col">Your Location of the request</th>
+        <th scope="col">Your Plate Number</th>
+        <th scope="col">Your Car Model</th>
+        <th scope="col">Mechanics report</th>
+        <th scope="col">Your rating</th>
+        </tr>
+        </thead>
+    <tbody>
+            {% for i in range((requests_completed|length)-1, -1, -1) %}
+                <!-- {% if entries|length == 1 %}
+                    i = 0
+                {% endif %} -->
+                {% if requests_completed[i][5] == 'No rating submited' %}
+                    <tr>
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{requests_completed[i][0]}}</td>
+                        <td>{{requests_completed[i][1]}}</td>
+                        <td>{{requests_completed[i][2]}}</td>
+                        <td>{{requests_completed[i][3]}}</td>
+                        <td>{{requests_completed[i][4]}}</td>
+                        <td>NO RATING CURRENTLY</td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+    </tbody>
+</table>
+</div>
+{%endblock contentA%}
