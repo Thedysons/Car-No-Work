@@ -32,14 +32,41 @@
                     <td>{{entries[i][2]}}</td>
                     <td>{{entries[i][3]}}</td>
                     <td>{{entries[i][4]}}</td>
-                    </tr>
-                
-                {% endfor %}
-            {% endif %}
-        </tbody>
-    </table>
+                    <td>{{entries[i][5]}}</td>
+                </tr>    
+
+
+                <!-- {% if entries[-1] != 'Job Completed' %}
+                    {% for i in range((entries|length)-1, -1, -1) %}
+                        {% if entries|length == 1 %}
+                            i = 0
+                        {% endif %} -->
+
+                        <!-- {% if entries[i][0]==current_client[-1] %}
+                            <tr>
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{entries[i][0]}}</td>
+                            <td>{{entries[i][1]}}</td>
+                            <td>{{entries[i][2]}}</td>
+                            <td>{{entries[i][3]}}</td>
+                            <td>{{entries[i][4]}}</td>
+                            <td>{{entries[i][5]}}</td>
+                            </tr>    
+                        {% endif %}
+                    {% endfor %}
+                {% endif %} --> 
+            </tbody>
+        </table>
+
+
+        {% endif %}
+    {%endfor%}
+{% endif %}
+
+<!-- <h5>{{ns.foo}}</h5> -->
+{% if ns.foo == False %}
+    <h3>You have made no requests</h3>
 {% endif %}
 </p>
 </div>
-
 {%endblock contentA%}

@@ -1,9 +1,9 @@
 {% extends 'layouts.html' %} 
 
 {%block contentA%} 
-<div class="container w-50"
-     style="margin-top: 10%;">
-    <form method="POST" action="">
+<div style="background:#1b2653; max-height: none;padding: 430.5px 20vw;"> 
+<div class="container w-50" style="background:#fff;border-radius: 25px; ">
+    <form method="POST" action="" style="padding:1vw">
         {{form.hidden_tag()}}
         <fieldset>
             <legend class="border-bottom mb-4">Login</legend>
@@ -47,5 +47,6 @@
         </div>
 
     </form>
+</div>
 </div>
 {%endblock contentA%}
