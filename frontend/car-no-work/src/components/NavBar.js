@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link} from "react-router-dom";
-import { menuData } from '../Data/MenuData';
+import { menuData, mechData, memberData } from '../Data/MenuData';
 import logoTransBlackLong from '../img/logoTransBlackLong.png';
 import {Button} from './Button';
 import {FaBars} from 'react-icons/fa';
@@ -30,8 +30,28 @@ const NavBtn = styled.div`
     }
 `
 
-class NavBar extends React.Component{
-    render(){
+export default function NavBar(props) {
+    let data          
+    data= menuData.map((item, index)=> (
+            <Link to={item.link} key={index} className='NavMenuLinks'>
+                {item.title}
+            </Link>
+    ))
+    if (props.user === "mechanic") {
+        data= mechData.map((item, index)=> (
+            <Link to={item.link} key={index} className='NavMenuLinks'>
+                {item.title}
+            </Link>
+    ))} else if(props.user ==="member") {
+        data= memberData.map((item, index)=> (
+            <Link to={item.link} key={index} className='NavMenuLinks'>
+                {item.title}
+            </Link>))
+    }
+   
+    
+
+
     return (
         <div className='Nav'>
             <Link to="/" className='NavMenuLinks'><img src={logoTransBlackLong} alt="logoTransBlackLong" className='logo'/></Link>
@@ -39,16 +59,12 @@ class NavBar extends React.Component{
 
             </MenuBars>
             <NavMenu className='NavMenu'>
-                {menuData.map((item, index)=> (
-                    <Link to={item.link} key={index} className='NavMenuLinks'>
-                        {item.title}
-                    </Link>
-                ))}
+                {data}
             </NavMenu>
             <NavBtn className='NavBtn'>
                 <Button to='/RapProfilePage' primary='true'>Push me</Button>
             </NavBtn>
         </div>
-    )}
+    )
 }
-export default NavBar
+//export default NavBar

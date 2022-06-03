@@ -1,5 +1,7 @@
 {% extends 'rapProfile.html' %} 
 {%block contentA%}
+<div style="display: flex; flex-direction: column; align-items: center;">
+<div style="padding: 20px; margin-top: 5%; width: 80%;"> 
 <h1>Welcome to your current job</h1>
 <h3>Information below:</h3>
 {% set currentJob = namespace(cJ=false) %}
@@ -48,4 +50,7 @@
     <h3><b>You have not accepted any jobs yet</b></h3>
 
 {% endif %}
+</div>
+</div>
+
 {%endblock contentA%}
