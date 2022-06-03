@@ -1,6 +1,7 @@
 {% extends 'clientProfile.html' %} 
 {%block contentA%} 
-<div style="margin: 10px; justify-self: flex-start;">
+<div style="display: flex; flex-direction: column; align-items: center;">
+    <div style="padding: 20px; margin-top: 5%; width: 80%;"> 
 <h1>Here is a list of all your requests and their final outcome</h1>
 {% set hor = namespace(bool=false) %}
 <div>
@@ -56,6 +57,8 @@
 </div>
 {% endif %}
 </div>
+</div>
+
 <div style=" position:absolute;width: 100%; height: 85vh; display: flex; align-items: flex-end; ">
     <div style="width: 100%;height: 20vh; background-color: #1b2653; " >
     <img style="height: 20vh;object-fit: contain;" 
