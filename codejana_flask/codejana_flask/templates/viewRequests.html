@@ -1,5 +1,27 @@
 {% extends 'rapProfile.html' %} 
 {%block contentA%}
+<div style="display: flex; flex-direction: column; align-items: center;">
+<div style="padding: 20px; margin-top: 5%; width: 80%;">  
+<div class="container w-50">
+    <form method="POST" action="">
+        {{form.hidden_tag()}}
+        <fieldset>
+            <div class="form-group">
+                {{form.accept_job.label(class="form-control-label")}}
+                {{form.accept_job(class="form-control form-control-lg")}} 
+            </div>
+            <div class="form-group">
+                {{form.decline_job.label(class="form-control-label")}}
+                {{form.decline_job(class="form-control form-control-lg")}} 
+                
+            </div>
+            <div class="form-group mt-4">
+                {{form.submit(class='btn btn-primary')}}
+            </div>
+        </fieldset>
+    </form>
+</div>
+</div>  
 <div>
     {%with messages=get_flashed_messages(with_categories=true)%}
           {%if messages%}
@@ -14,7 +36,7 @@
 <!--  -->
 
 
-<div>
+<div style="margin: 20px; width: 80%; align-self: center;">
     {% if entries|length == 0 %}
         <h1>You have no jobs yet</h1>
     {% else %}
@@ -81,5 +103,6 @@
         </tbody>
     </table>
 {% endif %}
+</div>
 </div>
 {% endblock contentA %}

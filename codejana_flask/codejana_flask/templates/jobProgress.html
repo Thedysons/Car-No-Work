@@ -1,8 +1,32 @@
 {% extends 'rapProfile.html' %} 
 {%block contentA%}
+<head>
+<style>
+
+h1, h2{
+  text-align: center;
+  padding: 10px;
+  margin: 20px;
+}
+
+.row{
+  background-color: #1b2653;
+  color: white;
+  height: 300px;
+}
+
+</style>
+</head>
 {% if current|length > 0 %}
-    <h1>Job Confirmed</h1>
-    <h2><u>The client has been notified that you are on your way.</u></h2>
+    <div class="row">
+      <div>
+      <h1>Job Confirmed</h1>
+      </div>
+      <br>
+      <div>
+      <h2 ><u>The client has been notified that you are on your way.</u></h2>
+      </div>
+    </div>
     <br> <br><br><br>
     <div class="container" style="text-align:center">
         <form method="POST" action="">
@@ -34,6 +58,9 @@
       {%endif%}
     {%endwith%}
 </div>
-
-
+{% if arrival|length > 0 %}
+<a href="{{url_for('jobComplete')}}" class="btn btn-primary btn-lg">Click to finish job</a>
+{% endif %}
+</div>
+</div>
 {%endblock contentA%}

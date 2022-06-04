@@ -1,6 +1,9 @@
 {% extends 'rapProfile.html' %} 
 {%block contentA%}
+<div style="display: flex; flex-direction: column; align-items: center;">
+    <div style="padding: 20px; margin-top: 5%; width: 80%;"> 
 <h1>Here is a list of all your completed jobs</h1>
+<p>(From most recent to oldest)</p>
 {% set hoj = namespace(bool2=false) %}
 <div>
     <div>
@@ -10,8 +13,7 @@
                     {% set hoj.bool2 = True %}
                 {% endif %}
             {% endfor %}
-            {% if hoj.bool2==True %}
-                <p>(From most recent to oldest)</p>
+            {% if hoj.bool2==True %}                
                 <table class="table table-dark table-hover">
                 <thead>
                 <tr>
@@ -47,5 +49,7 @@
         <h1>You have not taken any jobs</h1>
     {% endif %}
     </div>
+</div>
+</div>
 </div>
 {%endblock contentA%}

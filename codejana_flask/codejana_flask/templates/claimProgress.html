@@ -1,12 +1,20 @@
 {% extends 'clientProfile.html' %} 
 {%block contentA%} 
+<style>
+
+body{
+    color: white;
+    background-color: #1b2653;
+}
+    
+</style>
 <h1>Here is a list of your requests</h1>
+<p>(From most recent to oldest)</p>
 {% set ns = namespace(foo=false) %}
 {% if entries|length > 0 %}
     {% for i in range(entries|length) %}
         {% if entries[i][0]==current_client[-1] %}
             {% set ns.foo = True %}
-            <p>(From most recent to oldest)</p>
             <table class="table table-dark table-hover">
             <thead>
             <tr>
@@ -62,4 +70,7 @@
 {% if ns.foo == False %}
     <h3>You have made no requests</h3>
 {% endif %}
+</div>
+
 {%endblock contentA%}
+

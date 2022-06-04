@@ -1,6 +1,11 @@
 {% extends 'clientProfile.html' %} 
 {%block contentA%} 
-<h1>Make a request -- Page 1</h1>
+<style>
+    body{
+        background-color: #1b2653;
+    }
+</style>
+<h1 style="text-align: center; color: white;">Make a request -- Page 1</h1>
 <!-- <p>enter problem <br>enter location <br> enter plate number <br>enter model<br>etc</p>
 <p><b>Submit</b></p> -->
 <div>
@@ -14,8 +19,9 @@
           {%endif%}
         {%endwith%}
     </div>
+<!--
 <div class="container w-50">
-    <form method="POST" action="">
+     <form method="POST" action="">
         {{form.hidden_tag()}}
         <fieldset>
             <legend class="border-bottom mb-4">Request Help</legend>
@@ -42,6 +48,39 @@
             {{form.next(class='btn btn-primary')}}
         </div>
 
-    </form>
+    </form> 
+</div>-->
+<div class ="containerAReq">
+    <div class="contentReq">
+        2nd div
+        <form method="POST" action="">
+            {{form.hidden_tag()}}
+            <fieldset>
+                <legend class="leg">Request Help</legend>
+                <div class="form-group">
+                    {{form.problem_description.label(class="form-control-label")}}      
+                    {{form.problem_description(class="form-control form-control-lg")}}   
+                </div>
+                <div class="form-group">
+                    {{form.location.label(class="form-control-label")}}      
+                    {{form.location(class="form-control form-control-lg")}}   
+                </div>
+                <div class="form-group">
+                    {{form.plate_number.label(class="form-control-label")}}      
+                    {{form.plate_number(class="form-control form-control-lg")}}   
+                </div>
+                <div class="form-group">
+                    {{form.car_model.label(class="form-control-label")}}      
+                    {{form.car_model(class="form-control form-control-lg")}}   
+                </div>
+            
+            
+            </fieldset>
+            <div class="form-group btn">
+                {{form.next(class='btn btn-primary')}}
+            </div>
+
+        </form>
+    </div>
 </div>
 {%endblock contentA%}

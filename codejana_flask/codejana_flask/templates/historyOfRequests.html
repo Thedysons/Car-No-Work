@@ -1,5 +1,26 @@
 {% extends 'clientProfile.html' %} 
 {%block contentA%} 
+<style>
+    .download {    
+          margin-top: 20px;
+          height: 40px;
+          width: 30%;
+          align-self: center;;
+          border-radius: 2px;
+          box-shadow: 0px 4px 4px 0px #00000040;
+          border-style: none;
+          color: white;
+          background-color: #1b2653;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-decoration: none;
+      }
+</style>
+
+<div style="display: flex; flex-direction: column; align-items: center;">
+    <div style="padding: 20px; margin-top: 5%; width: 80%;"> 
 <h1>Here is a list of all your requests and their final outcome</h1>
 {% set hor = namespace(bool=false) %}
 <div>
@@ -49,11 +70,22 @@
                     {% endif %}
                 {% endfor %}
             </tbody>
-            <a class="nav-link active" aria-current="page" href="{{url_for('download')}}">Download report(s)?</a>
+            
     {% endif %}
 </table>
+<div style="display: flex; justify-content: flex-end;">
+    <a class="download" aria-current="page" href="{{url_for('download')}}">Download report(s)?</a>
+</div>
+</div>
 {% endif %}
 </div>
 <!-- <h1>request before complete: {{request_info}}</h1>
 <h3>request after: {{requests_completed}}</h3> -->
+</div>
+
+<div style="width: 100%;margin-top: 500px; display:flex; justify-content: center;">
+    <img style="height: 20vh;object-fit: contain;" 
+    src="{{url_for('static',filename='theme_pics/logoTransBlack.png')}}"  alt="...">
+</div>
+
 {%endblock contentA%}

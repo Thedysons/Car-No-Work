@@ -1,10 +1,19 @@
 {% extends 'rapProfile.html' %} 
 {%block contentA%}
-<h1>Start Your Job</h1>
-<div class="container w-50">
-    <form method="POST" action="">
+<style>
+    .form-group {
+        padding: 6px;
+    }
+</style>
+<div style="background:#1b2653;
+height:95.6vh; width:100vw; padding:20vh 25vw">  
+<div class="container w-50"  style="background:#fff;border-radius: 25px; ">
+    <form method="POST" action=""   style="padding:1vw">
         {{start_form.hidden_tag()}}
         <fieldset>
+            <legend class="border-bottom mb-4" style="text-align:center;">Start Job</legend>
+            <!-- img from https://www.fubiz.net/2014/10/30/animated-gif-illustrations-by-guillaume-kurkdjian/ -->
+            <img style="height:15vh;object-fit: contain;max-width:15vw;margin:auto;" src="{{url_for('static',filename='theme_pics/carGo.gif')}}" class="d-block w-100" alt="...">
             <div class="form-group">
                 {{start_form.distance.label(class="form-control-label")}}
                 {{start_form.distance(class="form-control form-control-lg")}} 
@@ -21,11 +30,11 @@
                 {{start_form.name.label(class="form-control-label")}}
                 {{start_form.name(class="form-control form-control-lg")}} 
             </div>
-            <div class="form-group mt-4">
+            <div class="form-group mt-4" style="text-align:center; padding: 2vh;">
                 {{start_form.submit(class='btn btn-primary')}}
             </div>
         </fieldset>
 </form>
 </div>
-
+</div>
 {%endblock contentA%}

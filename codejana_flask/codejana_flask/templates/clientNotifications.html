@@ -1,7 +1,9 @@
 {% extends 'clientProfile.html' %} 
 {%block contentA%} 
+<div style="display: flex; flex-direction: column; align-items: center;">
+    <div style="padding: 20px; margin-top: 5%; width: 80%;"> 
 <h1>Good news, a mechanic is on the way!</h1>
-<table class="table table-bordered border-primaryr">
+<table class="table table-bordered table-dark border-primaryr">
     <thead>
     <tr>
     <th>Notifications</th>
@@ -22,4 +24,10 @@
     </tbody>
     
 </table>
+</div>
+</div>
+<div style="width: 100%;margin-top: 500px; display:flex; justify-content: center;">
+    <img style="height: 20vh;object-fit: contain;" 
+    src="{{url_for('static',filename='theme_pics/logoTransBlack.png')}}"  alt="...">
+</div>
 {%endblock contentA%}
