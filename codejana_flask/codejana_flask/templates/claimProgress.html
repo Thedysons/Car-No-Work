@@ -8,6 +8,7 @@ body{
 }
     
 </style>
+<div style="padding:5vh 15vw;">
 <h1>Here is a list of your requests</h1>
 <p>(From most recent to oldest)</p>
 {% set ns = namespace(foo=false) %}
@@ -70,6 +71,7 @@ body{
 {% if ns.foo == False %}
     <h3>You have made no requests</h3>
 {% endif %}
+</div>
 </div>
 
 {%endblock contentA%}

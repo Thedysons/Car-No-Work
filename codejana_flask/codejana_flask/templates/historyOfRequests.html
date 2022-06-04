@@ -17,6 +17,10 @@
           justify-content: center;
           text-decoration: none;
       }
+    body{
+    color: white;
+    background-color: #1b2653;
+    }     
 </style>
 
 <div style="display: flex; flex-direction: column; align-items: center;">
@@ -35,6 +39,9 @@
 
     <p>(From most recent to oldest)</p>
     {% if hor.bool==True %}
+    <div style="display: flex; justify-content: flex-end;">
+        <a class="download" aria-current="page" href="{{url_for('download')}}">Download report(s)?</a>
+    </div>
         <table class="table table-dark table-hover">
             <thead>
             <tr>
@@ -73,9 +80,7 @@
             
     {% endif %}
 </table>
-<div style="display: flex; justify-content: flex-end;">
-    <a class="download" aria-current="page" href="{{url_for('download')}}">Download report(s)?</a>
-</div>
+
 </div>
 {% endif %}
 </div>
@@ -85,7 +90,7 @@
 
 <div style="width: 100%;margin-top: 500px; display:flex; justify-content: center;">
     <img style="height: 20vh;object-fit: contain;" 
-    src="{{url_for('static',filename='theme_pics/logoTransBlack.png')}}"  alt="...">
+    src="{{url_for('static',filename='theme_pics/logoTransWhite.png')}}"  alt="...">
 </div>
 
 {%endblock contentA%}

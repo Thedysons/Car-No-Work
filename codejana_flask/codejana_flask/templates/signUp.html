@@ -3,6 +3,17 @@
 {%block contentA%} 
 <div style="background:#1b2653;
 height:95.6vh; width:100vw; padding:30vh  20vw"> 
+<div class="container" w-50>
+    {%with messages=get_flashed_messages(with_categories=true)%}
+      {%if messages%}
+        {%for category,message in messages%}
+          <div class="alert alert-{{category}}">
+            {{message}}
+          </div>
+        {%endfor%}
+      {%endif%}
+    {%endwith%}
+  </div>
 <div class="container w-50" style="background:#fff;border-radius: 25px; ">
     <form method="POST" action="" style="padding:1vw">
         {{form.hidden_tag()}}

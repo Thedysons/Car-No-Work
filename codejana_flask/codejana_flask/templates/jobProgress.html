@@ -10,13 +10,14 @@ h1, h2{
 }
 
 .row{
-  background-color: #1b2653;
-  color: white;
   height: 300px;
 }
 
 </style>
 </head>
+<div style="background:#1b2653;
+height:95.6vh; width:100vw; padding:10vh 0vw"> 
+<div class="container w-50" style="background:#fff;border-radius: 25px; ">
 {% if current|length > 0 %}
     <div class="row">
       <div>
@@ -38,6 +39,7 @@ h1, h2{
             </fieldset>
     </form>
     {% if arrival|length > 0 %}
+      <br><br>
       <a href="{{url_for('jobComplete')}}" class="btn btn-primary btn-lg">Click to finish job</a>
     {% endif %}
     <!-- <a href="#" class="btn btn-primary btn-lg">Notify Client that you have arrived</a> -->
@@ -58,9 +60,11 @@ h1, h2{
       {%endif%}
     {%endwith%}
 </div>
-{% if arrival|length > 0 %}
+<!-- {% if arrival|length > 0 %}
 <a href="{{url_for('jobComplete')}}" class="btn btn-primary btn-lg">Click to finish job</a>
-{% endif %}
+{% endif %} -->
+</div>
+</div>
 </div>
 </div>
 {%endblock contentA%}
