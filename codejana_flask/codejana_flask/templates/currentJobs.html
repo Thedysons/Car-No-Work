@@ -12,7 +12,7 @@
         {% endif %}
     {% endfor %}
     {% if currentJob.cJ == True %}
-        <table class="table table-dark table-hover">
+        <table class="table table-hover" style="background-color: #1b2653; color: white;">
             <thead>
             <tr>
             <th scope="col">#</th>
@@ -44,7 +44,7 @@
         <h3><b>You have not accepted any jobs yetasadac</b></h3>
     {% endif %}
     <div class="container" style="text-align:center">
-    <a href="{{url_for('startJob')}}" class="btn btn-primary btn-lg">Start Job Now</a>
+    <a href="{{url_for('startJob')}}" class="btn btn-primary btn-lg" style=" box-shadow: 0px 4px 4px 0px #00000040;">Start Job Now</a>
     </div>
 {% else %}
     <h3><b>You have not accepted any jobs yet</b></h3>
