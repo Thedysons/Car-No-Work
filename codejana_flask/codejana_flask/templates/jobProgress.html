@@ -37,14 +37,12 @@ h1, h2{
                 </div>
             </fieldset>
     </form>
-
+    {% if arrival|length > 0 %}
+      <a href="{{url_for('jobComplete')}}" class="btn btn-primary btn-lg">Click to finish job</a>
+    {% endif %}
     <!-- <a href="#" class="btn btn-primary btn-lg">Notify Client that you have arrived</a> -->
     </div>
     
- 
-
-
-
 {% else %}
     <h1>You have not confirmed any jobs.</h1>
 {% endif %}
@@ -60,7 +58,6 @@ h1, h2{
       {%endif%}
     {%endwith%}
 </div>
-
 {% if arrival|length > 0 %}
 <a href="{{url_for('jobComplete')}}" class="btn btn-primary btn-lg">Click to finish job</a>
 {% endif %}

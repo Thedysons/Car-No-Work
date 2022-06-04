@@ -1,5 +1,19 @@
 {% extends 'clientProfile.html' %} 
 {%block contentA%} 
+<h1>Ratings page</h1>
+<div>
+    {%with messages=get_flashed_messages(with_categories=true)%}
+          {%if messages%}
+            {%for category,message in messages%}
+              <div class="alert alert-{{category}}">
+                {{message}}
+              </div>
+            {%endfor%}
+          {%endif%}
+        {%endwith%}
+    </div>
+<div>
+    <div class="container w-50">
 
 <div style="display: flex; flex-direction: column; align-items: center;">
     <div style="padding: 20px; margin-top: 5%; width: 80%;"> 

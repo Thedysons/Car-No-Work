@@ -27,31 +27,32 @@ height:95.6vh; width:100vw; padding:20vh 20vw">
 
     <h1>Job Complete!</h1>
     <h3>Here is the information of your job</h3>
-    <table class="table table-dark table-hover">
-        <thead>
-        <tr>
-        <th scope="col">#</th>
-        <th scope="col">Problem</th>
-        <th scope="col">Location</th>
-        <th scope="col">Plate Number</th>
-        <th scope="col">Car Model</th>
-        <th scope="col">Progress on Claim</th>
-        <th scope="col">Your rating</th>
-        </tr>
-        </thead>
-        <tbody>
+    {% if current|length > 0 %}
+        <table class="table table-dark table-hover">
+            <thead>
             <tr>
-            <th scope="row">{{1}}</th>
-            <td>{{current[0][0]}}</td>
-            <td>{{current[0][1]}}</td>
-            <td>{{current[0][2]}}</td>
-            <td>{{current[0][3]}}</td>
-            <td>{{current[0][4]}}</td>
-            <td>Client has not submitted a rating yet</td>
+            <th scope="col">#</th>
+            <th scope="col">Problem</th>
+            <th scope="col">Location</th>
+            <th scope="col">Plate Number</th>
+            <th scope="col">Car Model</th>
+            <th scope="col">Progress on Claim</th>
+            <th scope="col">Your rating</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th scope="row">{{1}}</th>
+                <td>{{current[0][0]}}</td>
+                <td>{{current[0][1]}}</td>
+                <td>{{current[0][2]}}</td>
+                <td>{{current[0][3]}}</td>
+                <td>{{current[0][4]}}</td>
+                <td>Client has not submitted a rating yet</td>
 
-            </tr>        
-        </tbody>
-    </table>
+                </tr>        
+            </tbody>
+        </table>
     <h4><b>Complete the form and submit to complete job</b></h4>
     <div class="container w-50">
         <form method="POST" action="">
@@ -67,7 +68,7 @@ height:95.6vh; width:100vw; padding:20vh 20vw">
             </fieldset>
     </form>
     </div>
-
+    {% endif %}
     <div>
         {%with messages=get_flashed_messages(with_categories=true)%}
               {%if messages%}

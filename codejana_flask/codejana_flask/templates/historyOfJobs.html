@@ -44,9 +44,9 @@
                     {% endfor %}
                 </tbody>
             </table>
-        {%elif jor.bool2 == False %}
-            <h1>You have not taken any jobs</h1>
-        {% endif %}
+            {% endif %}
+    {%elif hoj.bool2 == False or jh|length == 0 %}
+        <h1>You have not taken any jobs</h1>
     {% endif %}
     </div>
 </div>
