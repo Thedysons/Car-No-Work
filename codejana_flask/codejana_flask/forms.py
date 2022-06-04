@@ -40,7 +40,8 @@ class MockCreditCardPayment(FlaskForm):
 class TakeJobForm(FlaskForm):
     accept_job = StringField(label="Accept Job (enter job number)")
     decline_job = StringField(label="Decline Job (ener job number)")
-    submit = SubmitField(label="Submit Jobs to decline and/or accept")
+    submit = SubmitField(label="Accept Job")
+    submit2 = SubmitField(label="Decline Job")
 
 
 class StartJobForm(FlaskForm):

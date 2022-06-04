@@ -3,7 +3,17 @@
 <h1>Make a request -- Page 1</h1>
 <!-- <p>enter problem <br>enter location <br> enter plate number <br>enter model<br>etc</p>
 <p><b>Submit</b></p> -->
-
+<div>
+    {%with messages=get_flashed_messages(with_categories=true)%}
+          {%if messages%}
+            {%for category,message in messages%}
+              <div class="alert alert-{{category}}">
+                {{message}}
+              </div>
+            {%endfor%}
+          {%endif%}
+        {%endwith%}
+    </div>
 <div class="container w-50">
     <form method="POST" action="">
         {{form.hidden_tag()}}

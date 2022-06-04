@@ -2,6 +2,7 @@ from codejana_flask import app, db
 from flask import render_template, url_for, redirect, flash, request
 from codejana_flask.forms import SignUpForm, LoginForm, RequestHelpForm, PaymentOption, MockCreditCardPayment, TakeJobForm, StartJobForm, arrivedForm, finishJobForm, completeJobForm, forgotPasswordForm, ratingForm
 from codejana_flask.models import User
+from sqlalchemy.exc import IntegrityError
 
 @app.route('/')
 @app.route('/home')
@@ -20,12 +21,16 @@ def account():
 @app.route('/sign_up', methods=['POST', 'GET'])
 def sign_up():
     form=SignUpForm()
-    if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data, password=form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        flash(f'Account created successfully for {form.username.data}', category="success")
-        return redirect(url_for('login'))
+    try:
+        if form.validate_on_submit():
+            user = User(username=form.username.data, email=form.email.data, password=form.password.data)
+            db.session.add(user)
+            db.session.commit()
+            flash(f'Account created successfully for {form.username.data}', category="success")
+            return redirect(url_for('login'))
+    except IntegrityError as e:
+        flash(f'{form.email.data} already exists', category="danger")
+        return redirect(url_for('sign_up'))
     return render_template('signUp.html', title='Sign Up', form=form)
 
 # array used
@@ -34,47 +39,38 @@ rap_jobs = []   # this will hold requests by users but specifically made to be s
 rap_jobs_taken = []
 job_started = []
 arrival = []
-job_completed=[]
+job_completed=[['sam@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'bob@mechanic.com']]
 requests_completed=[]
 user_emails = []
 current_client = ['sam@dot.com']
 current_rap = ['bob@mechanic.com']
+client_notifications = []
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     form=LoginForm()
-    # if form.validate_on_submit():
-    #     user=User.query.filter_by(email=form.email.data).first()
-    #     if form.email.data==user.email and form.password.data==user.password:
-    #         user_emails.append(form.email.data)
-    #         if form.email.data[-13:] == '@mechanic.com':
-    #             # flash(f'Log in successful for {form.email.data}', category='success')
-    #             return redirect(url_for('rapProfile'))
-    #         # if log in is client, go to client profile
-    #         else:
-    #             # flash(f'Login successfull for {form.email.data}', category='success')
-    #             return redirect(url_for('clientProfile'))
-            # __________
-
-
-
-    if request.method == "POST":
-        user=User.query.filter_by(email=form.email.data).first()
-        if form.email.data==user.email and form.password.data==user.password:
-            if form.email.data[-13:] == '@mechanic.com':
-                # flash(f'Log in successful for {form.email.data}', category='success')
-                current_rap.append(request.form.get('email'))
-                return redirect(url_for('rapProfile'))
-            # if log in is client, go to client profile
+    try:
+        if request.method == "POST":
+            user=User.query.filter_by(email=form.email.data).first()
+            if form.email.data==user.email and form.password.data==user.password:
+                if form.email.data[-13:] == '@mechanic.com':
+                    # flash(f'Log in successful for {form.email.data}', category='success')
+                    current_rap.append(request.form.get('email'))
+                    return redirect(url_for('rapProfile'))
+                # if log in is client, go to client profile
+                else:
+                    # flash(f'Login successfull for {form.email.data}', category='success')
+                    # user_emails.append(request.form.get('email'))
+                    current_client.append(request.form.get('email'))
+                    return redirect(url_for('clientProfile'))
+                    
             else:
-                # flash(f'Login successfull for {form.email.data}', category='success')
-                # user_emails.append(request.form.get('email'))
-                current_client.append(request.form.get('email'))
-                return redirect(url_for('clientProfile'))
-                
-        else:
-            flash(f'Login unsuccessfull for {form.email.data}', category='danger')
-            return redirect(url_for('login'))
+                flash(f'Login unsuccessfull for {form.email.data}', category='danger')
+                return redirect(url_for('login'))
+    except AttributeError as e:
+        flash(f'{form.email.data} does not have an account, please check the email and try again or sign up', category='danger')
+        return redirect(url_for('login'))
+
         
  
     return render_template('login.html', title='Login', form=form)
@@ -82,21 +78,18 @@ def login():
 @app.route('/requestHelp', methods=['POST', 'GET'])
 def requestHelp():
     form=RequestHelpForm()
-    # if form.validate_on_submit():
-    #     request_info.append([form.problem_description.data, form.location.data, form.plate_number.data, form.car_model.data])
-    #     return redirect(url_for('requestHelp2'))
-
     if request.method == "POST":
-        # request_info.append ((
-        #     request.form.get('problem_description'), request.form.get('location'), request.form.get('plate_number'), request.form.get('car_model')
-        # ))
-        request_info.append ([
-            current_client[-1], request.form.get('problem_description'), request.form.get('location'), request.form.get('plate_number'), request.form.get('car_model'), 'Searching for Mechanic'
-        ])
-        rap_jobs.append ([
-            current_client[-1], request.form.get('problem_description'), request.form.get('location'), request.form.get('plate_number'), request.form.get('car_model'), 'Searching for Mechanic'
-        ])
-        return redirect(url_for('requestHelp2'))
+        if (len(request_info) == 0) or (any(current_client[-1] not in sublist for sublist in request_info)):
+            request_info.append ([
+                current_client[-1], request.form.get('problem_description'), request.form.get('location'), request.form.get('plate_number'), request.form.get('car_model'), 'Searching for Mechanic'
+            ])
+            rap_jobs.append ([
+                current_client[-1], request.form.get('problem_description'), request.form.get('location'), request.form.get('plate_number'), request.form.get('car_model'), 'Searching for Mechanic'
+            ])
+            return redirect(url_for('requestHelp2'))
+        elif (len(request_info) > 0) and (any(current_client[-1] in sublist for sublist in request_info)):
+            flash(f'You have already made a request, you cannot make more than one request at a time', category='danger')
+            return redirect(url_for('requestHelp'))
     return render_template('requestHelp.html',title='requestHelp', form=form)
 
 @app.route('/requestHelp2', methods=['POST', 'GET'])
@@ -152,14 +145,32 @@ def claim_history():
 def viewRequests():
     form = TakeJobForm()
     if request.method == "POST":
-        if form.accept_job.data != '':
-            index = int(request.form.get('accept_job')) -1
-            request_info[index][-1] = 'Mechanic found'
-            rap_jobs[index][-1] = "You have taken this job"
-            rap_jobs_taken.append([rap_jobs[index][0], rap_jobs[index][1], rap_jobs[index][2], rap_jobs[index][3], rap_jobs[index][4], rap_jobs[index][5], current_rap[-1]])
-        if form.decline_job.data != '':
-            index = int(request.form.get('decline_job')) -1
-            rap_jobs.pop(index)
+        if (len(rap_jobs_taken) == 0) or (any(current_rap[-1] not in sublist for sublist in rap_jobs_taken)):
+            if form.accept_job.data != '':
+                try:
+                    if int(request.form.get('accept_job')) <= len(request_info):
+                        index = int(request.form.get('accept_job')) -1
+                        request_info[index][-1] = 'Mechanic found'
+                        rap_jobs[index][-1] = current_rap[-1] + " has taken this job"
+                        # format of rap_jobs_taken: clients email, problem, location of client, plate number, car model, progress, current mechanic online
+                        rap_jobs_taken.append([rap_jobs[index][0], rap_jobs[index][1], rap_jobs[index][2], rap_jobs[index][3], rap_jobs[index][4], rap_jobs[index][5], current_rap[-1]])
+                    else:
+                        flash(f'You have entered an invalid job ID, please try again', category='danger')
+                except ValueError as e:
+                    flash(f'Please enter a whole integer (e.g. 1)', category='danger')
+            
+            if form.decline_job.data != '':
+                try:
+                    if int(request.form.get('decline_job')) <= len(request_info):
+                        index = int(request.form.get('decline_job')) -1
+                        rap_jobs.pop(index)
+                    else:
+                        flash(f'You have entered an invalid job ID, please try again', category='danger')
+                except ValueError as e:
+                    flash(f'Please enter a whole integer (e.g. 1)', category='danger')
+
+        elif (len(rap_jobs_taken) > 0) and (any(current_rap[-1] in sublist for sublist in rap_jobs_taken)):
+            flash(f'You have already accepted a job, you cannot take more than one job at a time', category='danger')
         
     return render_template('viewRequests.html', entries=request_info, jobs=rap_jobs, title='View Requests', form=form)
 
@@ -172,6 +183,9 @@ def startJob():
     start_form = StartJobForm()
     if request.method == "POST":
         job_started.append([request.form.get('distance'), request.form.get('location'), request.form.get('time'), request.form.get('name')])
+        for i in rap_jobs_taken:
+            if i[-1] == current_rap[-1]:
+                client_notifications.append([i[0], request.form.get('distance'), request.form.get('location'), request.form.get('time'), request.form.get('name')])
         return redirect(url_for('jobProgress'))
     return render_template('startJob.html', current=rap_jobs_taken, title='Start Job', start_form=start_form)
 
@@ -191,23 +205,42 @@ def jobProgress():
         flash(f'Client has been notified that you have arrived', category='success')
         arrival.append('Assitance have arrived to your location')
     
-    return render_template('jobProgress.html', current=rap_jobs_taken, arrival=arrival, title='Progress of current job', arrived=arrived, finish=finish)
+    return render_template('jobProgress.html', current=rap_jobs_taken, arrival=arrival, client_notifications=client_notifications, title='Progress of current job', arrived=arrived, finish=finish)
 
 
 @app.route('/jobComplete', methods=['POST', 'GET'])
 def jobComplete():
     jobCompleted= completeJobForm()
     if jobCompleted.validate_on_submit():
-        # job_completed consists of the client's problem, the client's location, client's plate number, client's model, final report submitted, and rating
+        # job_completed consists of the client's email, client's problem, the client's location, client's plate number, client's model, final report submitted, rating, and current mechanic online
         job_completed.append([rap_jobs_taken[0][0], rap_jobs_taken[0][1], rap_jobs_taken[0][2], rap_jobs_taken[0][3],  rap_jobs_taken[0][4], request.form.get('report'), 'No rating submited', current_rap[-1]])
 
-        requests_completed.append([rap_jobs_taken[0][0], rap_jobs_taken[0][1], rap_jobs_taken[0][2], rap_jobs_taken[0][3], rap_jobs_taken[0][4], request.form.get('report'), 'No rating submited'])
-        flash(f'You have completed this job, good job.', category='success')
+        requests_completed.append([rap_jobs_taken[0][0], rap_jobs_taken[0][1], rap_jobs_taken[0][2], rap_jobs_taken[0][3], rap_jobs_taken[0][4], request.form.get('report'), 'No rating submited', rap_jobs_taken[0][-1]])
+        
+        if any(current_rap[-1] in sublist for sublist in job_completed) and any(current_rap[-1] in sublist for sublist in rap_jobs_taken):
+            # for finished job(s) in the jobs completed by the mechanic
+            for finished_job in job_completed:
+                # for requests jobs in which the mechanic has accepted
+                for job_accepted in rap_jobs_taken:
+                    # if finished job equals the job accepted by the mecahnic
+                    # what could be the problem: finished_job and job_accepted have different elements so they will never be equal, try to compare the individual elements
+                    if (finished_job[0] == job_accepted[0]) and (finished_job[1] == job_accepted[1]) and (finished_job[2] == job_accepted[2]) and (finished_job[2] == job_accepted[2]) and (finished_job[3] == job_accepted[3]) and (finished_job[4] == job_accepted[4]) and (finished_job[-1] == current_rap[-1]):
+                        rap_jobs_taken.remove(job_accepted)
+        
+        if any(current_client[-1] in sublist for sublist in requests_completed) and any(current_client[-1] in sublist for sublist in request_info):
+            pass
+            for request_ in request_info:
+                for completed_request in requests_completed:
+                    if (request_[0]==completed_request[0]) and (request_[1]==completed_request[1]) and (request_[2]==completed_request[2]) and (request_[3]==completed_request[3]) and (request_[4]==completed_request[4]):
+                        request_info.remove(request_)
+
+
+        flash(f'You have completed this job, good job. Please check History of jobs to check information of your recent job(s).', category='success')
     return render_template('jobComplete.html', current=rap_jobs_taken, title='Job complete', jobCompleted=jobCompleted)
 
 @app.route('/historyOfRequests', methods=['POST', 'GET'])
 def historyOfRequests():
-    return render_template('historyOfRequests.html', requests_completed=requests_completed, current_client=current_client, title='History of requests')
+    return render_template('historyOfRequests.html', requests_completed=requests_completed, current_client=current_client, request_info=request_info, title='History of requests')
 
 @app.route('/historyOfJobs', methods=['POST', 'GET'])
 def historyOfJobs():
@@ -237,10 +270,19 @@ def ratings():
     rating=ratingForm()
     if rating.validate_on_submit():
         if rating.job_number.data != '':
-            index = int(request.form.get('job_number')) -1
-            if rating.give_rating.data != '':
-                requests_completed[index][-1] = request.form.get('give_rating')
-                job_completed[index][-2] = request.form.get('give_rating')
+            try:
+                if rating.give_rating.data != '':
+                    if int(request.form.get('job_number')) <= len(requests_completed):
+                        index = int(request.form.get('job_number')) -1
+                        if requests_completed[index][0] == current_client[-1]:
+                            requests_completed[index][-2] = request.form.get('give_rating')
+                            job_completed[index][-2] = request.form.get('give_rating')
+                        else:
+                            flash(f'You have entered an invalid job ID, please try again', category='danger')
+                    elif int(request.form.get('job_number')) > len(requests_completed):
+                        flash(f'You have entered an invalid job ID, please try again', category='danger')
+            except ValueError as e:
+                    flash(f'Please enter a whole integer (e.g. 1)', category='danger')
     return render_template('ratings.html', requests_completed=requests_completed, title='Ratings page', rating=rating)
 
 @app.route('/download', methods=['POST', 'GET'])
