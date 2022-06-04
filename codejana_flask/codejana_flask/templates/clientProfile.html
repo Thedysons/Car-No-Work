@@ -54,17 +54,17 @@
       </ul>
   </nav>
   </head>
-  <body style="background-color: #1b2653;">
     {%block contentA%} 
+    <body style="background-color: #1b2653;">
     <div class="containerA">
       <div class ="content">
       <div class="text">
         <img src="{{url_for('static',filename='logoTransBlackLong.png')}}"/>
-        <h1>Welcome to your profile page</h1>
         <p>Welcome {{current_client[-1]}}</p>
+        <h1>Make a request to get started</h1>
       </div>
       </div>
     </div>
-    
-    {%endblock contentA%} 
   </body>
+    {%endblock contentA%} 
+  
