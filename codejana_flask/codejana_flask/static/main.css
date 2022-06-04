@@ -3,8 +3,115 @@
     color:white;
 }
 
-.backgroundCol {
-    background-color: #1b2653;
-    color:white;
+
+
+
+.leg{
+    text-align: center;
+    border-bottom: 2px solid rgba(153, 147, 147, 0.5);
 }
 
+.containerA{
+    position:absolute;
+    top:100px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.containerC{
+    position:absolute;
+    top:100px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.colB{
+    height: 350px;
+    width: 30%;
+    margin:40px;
+    padding: 10px;
+    background-color: #1b2653;
+    background-color: rgba(169, 245, 188, 0.815);
+    border-radius: 20px;
+    box-sizing: border-box;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777; 
+}
+
+.containerAReq{
+    position:absolute;
+    top:100px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.form-group{
+    padding:10px;
+}
+
+.form-group btn{
+    align-items: center;
+    justify-content: center;
+}
+
+.containerB{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    width: 50%;
+}
+
+.content{
+    background-color: rgba(169, 245, 188, 0.815);
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 70%;
+    padding: 10px;
+    width: 55%;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
+}
+
+.contentReq{
+    background-color: rgba(255, 255, 255, 0.815);
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 60%;
+    padding: 10px;
+    width: 30%;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
+}
+
+
+.text{
+    width: auto;
+    margin: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    color: black;
+}
+
+.text h1{
+    font-size: 62px;
+    font-family: 'montserrat', sans-serif ;
+    font-weight: 400px;
+    margin: 14px 0px;
+}

@@ -1,15 +1,20 @@
 {% extends 'clientProfile.html' %} 
 {%block contentA%} 
-<div style="margin: 10px; justify-self: flex-start;">
-   
-<h1 style="margin-bottom: 0px;">Here is a list of your requests</h1>
+<style>
+
+body{
+    color: white;
+    background-color: #1b2653;
+}
+    
+</style>
+<h1>Here is a list of your requests</h1>
+<p>(From most recent to oldest)</p>
 {% set ns = namespace(foo=false) %}
 {% if entries|length > 0 %}
     {% for i in range(entries|length) %}
         {% if entries[i][0]==current_client[-1] %}
             {% set ns.foo = True %}
-            <p>(From most recent to oldest)</p>
-            
             <table class="table table-dark table-hover">
             <thead>
             <tr>
