@@ -1,0 +1,51 @@
+{% extends 'rapProfile.html' %} 
+{%block contentA%}
+<h1>Welcome to your current job</h1>
+<h3>Information below:</h3>
+{% set currentJob = namespace(cJ=false) %}
+{% if current|length > 0%}
+    {% for i in range(current|length) %}
+        {% if current[i][-1]==current_rap[-1] %}
+            {% set currentJob.cJ = True %}
+        {% endif %}
+    {% endfor %}
+    {% if currentJob.cJ == True %}
+        <table class="table table-dark table-hover">
+            <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Client's Email</th>
+            <th scope="col">Problem</th>
+            <th scope="col">Location</th>
+            <th scope="col">Plate Number</th>
+            <th scope="col">Car Model</th>
+            <th scope="col">Progress on Claim</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for i in range(current|length) %}
+                    {% if current[i][-1] == current_rap[-1] %}
+                        <tr>
+                        <th scope="row">{{1}}</th>
+                        <td>{{current[0][0]}}</td>
+                        <td>{{current[0][1]}}</td>
+                        <td>{{current[0][2]}}</td>
+                        <td>{{current[0][3]}}</td>
+                        <td>{{current[0][4]}}</td>
+                        <td>{{current[0][5]}}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %} 
+            </tbody>
+        </table>
+    {% elif currentJob.cJ == False %}
+        <h3><b>You have not accepted any jobs yetasadac</b></h3>
+    {% endif %}
+    <div class="container" style="text-align:center">
+    <a href="{{url_for('startJob')}}" class="btn btn-primary btn-lg">Start Job Now</a>
+    </div>
+{% else %}
+    <h3><b>You have not accepted any jobs yet</b></h3>
+
+{% endif %}
+{%endblock contentA%}

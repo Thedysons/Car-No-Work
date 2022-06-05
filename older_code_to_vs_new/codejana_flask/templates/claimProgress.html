@@ -1,0 +1,65 @@
+{% extends 'clientProfile.html' %} 
+{%block contentA%} 
+<h1>Here is a list of your requests</h1>
+{% set ns = namespace(foo=false) %}
+{% if entries|length > 0 %}
+    {% for i in range(entries|length) %}
+        {% if entries[i][0]==current_client[-1] %}
+            {% set ns.foo = True %}
+            <p>(From most recent to oldest)</p>
+            <table class="table table-dark table-hover">
+            <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Your email</th>
+            <th scope="col">Problem</th>
+            <th scope="col">Location</th>
+            <th scope="col">Plate Number</th>
+            <th scope="col">Car Model</th>
+            <th scope="col">Progress on Claim</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{entries[i][0]}}</td>
+                    <td>{{entries[i][1]}}</td>
+                    <td>{{entries[i][2]}}</td>
+                    <td>{{entries[i][3]}}</td>
+                    <td>{{entries[i][4]}}</td>
+                    <td>{{entries[i][5]}}</td>
+                </tr>    
+
+
+                <!-- {% if entries[-1] != 'Job Completed' %}
+                    {% for i in range((entries|length)-1, -1, -1) %}
+                        {% if entries|length == 1 %}
+                            i = 0
+                        {% endif %} -->
+
+                        <!-- {% if entries[i][0]==current_client[-1] %}
+                            <tr>
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{entries[i][0]}}</td>
+                            <td>{{entries[i][1]}}</td>
+                            <td>{{entries[i][2]}}</td>
+                            <td>{{entries[i][3]}}</td>
+                            <td>{{entries[i][4]}}</td>
+                            <td>{{entries[i][5]}}</td>
+                            </tr>    
+                        {% endif %}
+                    {% endfor %}
+                {% endif %} --> 
+            </tbody>
+        </table>
+
+
+        {% endif %}
+    {%endfor%}
+{% endif %}
+
+<!-- <h5>{{ns.foo}}</h5> -->
+{% if ns.foo == False %}
+    <h3>You have made no requests</h3>
+{% endif %}
+{%endblock contentA%}
