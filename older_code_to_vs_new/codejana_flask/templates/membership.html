@@ -1,0 +1,42 @@
+{% extends 'clientProfile.html' %} 
+{%block contentA%}
+<h5>Information for a membership and what it will include:</h1>
+<ul>
+    <li>Cost: $200</li>
+    <li>Length: 1 Year</li>
+    <li>Unlimted amount of help claims for 1 year</li>
+</ul>
+
+<h3><b>Your credit card details:</b></h3>
+
+<div class="container w-50">
+    <form method="POST" action="">
+        {{form.hidden_tag()}}
+        <fieldset>
+            <legend class="border-bottom mb-4">Payment for $200</legend>
+            <div class="form-group">
+                {{form.name.label(class="form-control-label")}}      
+                {{form.name(class="form-control form-control-lg")}}   
+            </div>
+            <div class="form-group">
+                {{form.card_number.label(class="form-control-label")}}      
+                {{form.card_number(class="form-control form-control-lg")}}   
+            </div>
+            <div class="form-group">
+                {{form.card_cv.label(class="form-control-label")}}      
+                {{form.card_cv(class="form-control form-control-lg")}}   
+            </div>
+            <div class="form-group">
+                {{form.expiary_date.label(class="form-control-label")}}      
+                {{form.expiary_date(class="form-control form-control-lg")}}   
+            </div>
+           
+           
+        </fieldset>
+        <div class="form-group mt-4">
+            {{form.submit(class='btn btn-primary')}}
+        </div>
+
+    </form>
+</div>
+{%endblock contentA%}
