@@ -1,0 +1,102 @@
+{% extends 'rapProfile.html' %} 
+{%block contentA%}
+<div style="background:#1b2653;
+height:95.6vh; width:100vw; padding:15vh 0vw"> 
+<div class="container w-50" style="background:#fff;border-radius: 25px; ">
+<div style="display: flex; flex-direction: column;">
+<div style="padding: 20px; margin-top: 5%; width: 80%;">  
+<div>
+    {%with messages=get_flashed_messages(with_categories=true)%}
+          {%if messages%}
+            {%for category,message in messages%}
+              <div class="alert alert-{{category}}">
+                {{message}}
+              </div>
+            {%endfor%}
+          {%endif%}
+        {%endwith%}
+    </div>
+<!--  -->
+
+
+<div style=" width: 80%;">
+    {% if entries|length == 0 %}
+        <h1>You have no jobs yet</h1>
+    {% else %}
+        <div class="container w-50" style="padding-left:0">
+            <form method="POST" action="">
+                {{form.hidden_tag()}}
+                <fieldset>
+                    <div class="form-group"></div>
+                    <table style="padding:1vh; height:15vh;width:35vw">
+                        <tr>
+                            <td>{{form.accept_job.label(class="form-control-label")}}</td>
+                            <td style="width:5vw"> </td>
+                            <td>{{form.decline_job.label(class="form-control-label")}}</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>{{form.accept_job(class="form-control form-control-lg")}} </td>
+                            <td> </td>
+                            <td>{{form.decline_job(class="form-control form-control-lg")}}  </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>{{form.submit(class='btn btn-primary')}}</td>
+                            <td> </td>
+                            <td>{{form.submit2(class='btn btn-primary')}}</td>
+                        </tr>
+                    </table>
+                    </div>
+                    <!-- <div class="form-group mt-4">
+                        {{form.submit(class='btn btn-primary')}}
+                    </div> -->
+                </fieldset>
+            </form>
+        </div>
+        
+        <div>
+            <br>
+        </div>
+        <h1>Here is a list of your claims:</h1>
+        <p>(From most recent to oldest)</p>
+        <table class="table table-dark table-hover" style="width:45vw">
+        <thead >
+        <tr>
+        <th scope="col">#</th>
+        <th scope="col">Client's Email</th>
+        <th scope="col">Problem</th>
+        <th scope="col">Location</th>
+        <th scope="col">Plate Number</th>
+        <th scope="col">Car Model</th>
+        <th scope="col">Progress on Claim</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% if jobs[-1] != 'Job Completed' %}
+                {% for i in range((jobs|length)-1, -1, -1) %}
+                    <!-- {% if entries|length == 1 %}
+                        i = 0
+                    {% endif %} -->
+                    <tr>
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{jobs[i][0]}}</td>
+                    <td>{{jobs[i][1]}}</td>
+                    <td>{{jobs[i][2]}}</td>
+                    <td>{{jobs[i][3]}}</td>
+                    <td>{{jobs[i][4]}}</td>
+                    <td>{{jobs[i][5]}}</td>
+                    </tr>
+                    
+                
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+{% endif %}
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock contentA %}

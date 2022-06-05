@@ -1,0 +1,58 @@
+{% extends 'layouts.html' %} 
+
+{%block contentA%} 
+<div style="background:#1b2653;
+height:95.6vh; width:100vw; padding:30vh 20vw">  
+<div class="container" w-50>
+    {%with messages=get_flashed_messages(with_categories=true)%}
+      {%if messages%}
+        {%for category,message in messages%}
+          <div class="alert alert-{{category}}">
+            {{message}}
+          </div>
+        {%endfor%}
+      {%endif%}
+    {%endwith%}
+  </div>
+<div class="container w-50" style="background:#fff;border-radius: 25px; ">
+    <form method="POST" action="" style="padding:1vw">
+        {{form.hidden_tag()}}
+        <fieldset>
+            <legend class="border-bottom mb-4">Login</legend>
+            <div class="form-group">
+                {{form.email.label(class="form-control-label")}}
+                {%if form.email.errors%}
+                {{form.email(class="form-control form-control-lg is-invalid")}} 
+                    {%for error in form.email.errors%}
+                        <span>{{error}}</span>
+                    {%endfor%}
+                {%else%} 
+                {{form.email(class="form-control form-control-lg")}} 
+                {%endif%} 
+                
+            </div>
+            <div class="form-group">
+                {{form.password.label(class="form-control-label")}}
+                {%if form.password.errors%}
+                {{form.password(class="form-control form-control-lg is-invalid")}} 
+                    {%for error in form.password.errors%}
+                        <span>{{error}}</span>
+                    {%endfor%}
+                {%else%} 
+                {{form.password(class="form-control form-control-lg")}} 
+                {%endif%}
+                
+            </div>
+        </fieldset>
+        <div class="form-group mt-4">
+            {{form.submit(class='btn btn-primary')}}
+        </div>
+        <br>
+        <div>
+            <a href="{{url_for('forgotPassword')}}">Forgot Password?</a>
+        </div>
+
+    </form>
+</div>
+</div>
+{%endblock contentA%}
