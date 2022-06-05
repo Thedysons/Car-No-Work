@@ -46,19 +46,19 @@ rap_jobs_taken = []
 job_started = []
 arrival = []
 job_completed = []
-job_completed=  [
-                    ['sam@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'bob@mechanic.com'], ['raveena@dot.com', 'Drove my car into a lake', 'NSW', '8189', 'BMW i4', 'Car Towed back to the shop to drain all the water out of it.', '5', 'bob@mechanic.com'],
-                    ['jack@dot.com', 'Ran out of fuel', 'NSW', '4321', 'Toyota Supra', 'Filled up clients car with E10 to full', '3', 'bob@mechanic.com'], ['keegan@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'bob@mechanic.com'],
-                    ['tom@dot.com', 'Flat Car Battery', 'NSW', '0010', 'Honda Jazz', 'Battery Replaced', '4.8', 'bob@mechanic.com'], ['ludy@dot.com', 'Drove into a pole and smahed a headlight', 'NSW', '2001', 'VW ID Buzz', 'Headlight fixed.', '2.1', 'bob@mechanic.com'],
-                    ['sam2@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'jeff@mechanic.com'], ['raveena2@dot.com', 'Drove my car into a lake', 'NSW', '8189', 'BMW i4', 'Car Towed back to the shop to drain all the water out of it.', '5', 'jeff@mechanic.com'],
-                    ['jack2@dot.com', 'Ran out of fuel', 'NSW', '4321', 'Toyota Supra', 'Filled up clients car with E10 to full', '5', 'jeff@mechanic.com'], ['keegan2@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'jeff@mechanic.com'],
-                    ['tom2@dot.com', 'Flat Car Battery', 'NSW', '0010', 'Honda Jazz', 'Battery Replaced', '4.8', 'jeff@mechanic.com'], ['ludy2@dot.com', 'Drove into a pole and smahed a headlight', 'NSW', '2001', 'VW ID Buzz', 'Headlight fixed.', '2.1', 'jeff@mechanic.com'],
-                    ['sam3@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'jim@mechanic.com'], ['raveena3@dot.com', 'Drove my car into a lake', 'NSW', '8189', 'BMW i4', 'Car Towed back to the shop to drain all the water out of it.', '5', 'jim@mechanic.com'],
-                    ['jack3@dot.com', 'Ran out of fuel', 'NSW', '4321', 'Toyota Supra', 'Filled up clients car with E10 to full', '5', 'jim@mechanic.com'], ['keegan3@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'jim@mechanic.com'],
-                    ['tom3@dot.com', 'Flat Car Battery', 'NSW', '0010', 'Honda Jazz', 'Battery Replaced', '4.8', 'jim@mechanic.com'], ['ludy3@dot.com', 'Drove into a pole and smahed a headlight', 'NSW', '2001', 'VW ID Buzz', 'Headlight fixed.', '2.1', 'jim@mechanic.com'],
-                    ['ludy4@dot.com', 'Car turned into a motorbike', 'QLD', '000', 'Spaceship 3000', 'Motorbike is cool, so nothing was changed.', '5', 'johnny@mechanic.com'],
-                    ['sam4@dot.com', 'Car Exploded', 'UOW campus', 'b00m', 'Tesla Model 3', 'Built Car in lego parts from scratch', '4.5', 'johnny@mechanic.com']
-                ]
+# job_completed=  [
+#                     ['sam@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'bob@mechanic.com'], ['raveena@dot.com', 'Drove my car into a lake', 'NSW', '8189', 'BMW i4', 'Car Towed back to the shop to drain all the water out of it.', '5', 'bob@mechanic.com'],
+#                     ['jack@dot.com', 'Ran out of fuel', 'NSW', '4321', 'Toyota Supra', 'Filled up clients car with E10 to full', '3', 'bob@mechanic.com'], ['keegan@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'bob@mechanic.com'],
+#                     ['tom@dot.com', 'Flat Car Battery', 'NSW', '0010', 'Honda Jazz', 'Battery Replaced', '4.8', 'bob@mechanic.com'], ['ludy@dot.com', 'Drove into a pole and smahed a headlight', 'NSW', '2001', 'VW ID Buzz', 'Headlight fixed.', '2.1', 'bob@mechanic.com'],
+#                     ['sam2@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'jeff@mechanic.com'], ['raveena2@dot.com', 'Drove my car into a lake', 'NSW', '8189', 'BMW i4', 'Car Towed back to the shop to drain all the water out of it.', '5', 'jeff@mechanic.com'],
+#                     ['jack2@dot.com', 'Ran out of fuel', 'NSW', '4321', 'Toyota Supra', 'Filled up clients car with E10 to full', '5', 'jeff@mechanic.com'], ['keegan2@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'jeff@mechanic.com'],
+#                     ['tom2@dot.com', 'Flat Car Battery', 'NSW', '0010', 'Honda Jazz', 'Battery Replaced', '4.8', 'jeff@mechanic.com'], ['ludy2@dot.com', 'Drove into a pole and smahed a headlight', 'NSW', '2001', 'VW ID Buzz', 'Headlight fixed.', '2.1', 'jeff@mechanic.com'],
+#                     ['sam3@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'jim@mechanic.com'], ['raveena3@dot.com', 'Drove my car into a lake', 'NSW', '8189', 'BMW i4', 'Car Towed back to the shop to drain all the water out of it.', '5', 'jim@mechanic.com'],
+#                     ['jack3@dot.com', 'Ran out of fuel', 'NSW', '4321', 'Toyota Supra', 'Filled up clients car with E10 to full', '5', 'jim@mechanic.com'], ['keegan3@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'jim@mechanic.com'],
+#                     ['tom3@dot.com', 'Flat Car Battery', 'NSW', '0010', 'Honda Jazz', 'Battery Replaced', '4.8', 'jim@mechanic.com'], ['ludy3@dot.com', 'Drove into a pole and smahed a headlight', 'NSW', '2001', 'VW ID Buzz', 'Headlight fixed.', '2.1', 'jim@mechanic.com'],
+#                     ['ludy4@dot.com', 'Car turned into a motorbike', 'QLD', '000', 'Spaceship 3000', 'Motorbike is cool, so nothing was changed.', '5', 'johnny@mechanic.com'],
+#                     ['sam4@dot.com', 'Car Exploded', 'UOW campus', 'b00m', 'Tesla Model 3', 'Built Car in lego parts from scratch', '4.5', 'johnny@mechanic.com']
+#                 ]
 requests_completed=[]
 user_emails = []
 current_client = ['sam@dot.com']
