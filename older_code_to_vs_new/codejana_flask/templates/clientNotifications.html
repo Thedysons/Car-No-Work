@@ -1,0 +1,25 @@
+{% extends 'clientProfile.html' %} 
+{%block contentA%} 
+<h1>Good news, a mechanic is on the way!</h1>
+<table class="table table-bordered border-primaryr">
+    <thead>
+    <tr>
+    <th>Notifications</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% if job_started|length > 0 %}
+            <td>Your job has been confirmed by {{job_started[0][3]}}, who will arrive approximately in {{job_started[0][2]}}.</td>
+            {% if arrival|length > 0 %}
+                <tr>
+                <td>{{arrival[0]}}</td>
+                </tr>
+            {% endif %}
+        {%else%}
+            <td><b>You have no Notifications</b></td>
+            
+        {% endif %}
+    </tbody>
+    
+</table>
+{%endblock contentA%}
