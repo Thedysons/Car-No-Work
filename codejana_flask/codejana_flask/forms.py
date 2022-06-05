@@ -69,3 +69,7 @@ class ratingForm(FlaskForm):
     job_number = StringField(label="Enter Job number to give rating to")
     give_rating = StringField(label="Give rating out of 5")
     submit = SubmitField(label="Submit Rating")
+
+class downloadForm(FlaskForm):
+    job_number = StringField(label="Enter Job number to download txt file of the report")
+    submit = SubmitField(label="Download to txt file")

@@ -1,0 +1,65 @@
+{% extends 'rapProfile.html' %} 
+{%block contentA%}
+<!-- this one -->
+<style>
+    body{
+    color: white;
+    background-color: #1b2653;
+    }     
+</style>
+<div style="background:#1b2653;
+height:95.6vh; width:100vw; padding:20vh 10vw">  
+<div class="container w-50" style="background:#fff;border-radius: 25px; ">
+<div style="display: flex; flex-direction: column; align-items: center;padding:1vw">
+<h1>Completed jobs</h1>
+<p>(From most recent to oldest)</p>
+{% set hoj = namespace(bool2=false) %}
+<div>
+    <div>
+        {% if jh|length > 0 %}
+            {% for i in range(jh|length) %}
+                {% if jh[i][-1]==current_rap[-1] %}
+                    {% set hoj.bool2 = True %}
+                {% endif %}
+            {% endfor %}
+            {% if hoj.bool2==True %}                
+                <table class="table table-dark table-hover">
+                <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Client's Email</th>
+                <th scope="col">Client's Problem</th>
+                <th scope="col">Client's Location</th>
+                <th scope="col">Client's Plate Number</th>
+                <th scope="col">Client's Car Model</th>
+                <th scope="col">Your report on the job</th>
+            <th scope="col">Your rating of the job</th>       
+                </tr>
+                </thead>
+                <tbody>
+                    {% for i in range((jh|length)-1, -1, -1) %}
+                        {% if jh[i][-1]==current_rap[-1] %}
+                            <tr>
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{jh[i][0]}}</td>
+                            <td>{{jh[i][1]}}</td>
+                            <td>{{jh[i][2]}}</td>
+                            <td>{{jh[i][3]}}</td>
+                            <td>{{jh[i][4]}}</td>
+                            <td>{{jh[i][5]}}</td>
+                            <td>{{jh[i][6]}}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+    {%elif hoj.bool2 == False or jh|length == 0 %}
+        <h1>You have not taken any jobs</h1>
+    {% endif %}
+    </div>
+</div>
+</div>
+</div>
+</div>
+{%endblock contentA%}

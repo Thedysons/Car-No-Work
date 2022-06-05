@@ -1,26 +1,32 @@
 from codejana_flask import app, db
 from flask import render_template, url_for, redirect, flash, request
-from codejana_flask.forms import SignUpForm, LoginForm, RequestHelpForm, PaymentOption, MockCreditCardPayment, TakeJobForm, StartJobForm, arrivedForm, finishJobForm, completeJobForm, forgotPasswordForm, ratingForm
+# from codejana_flask.codejana_flask.forms import downloadForm
+from codejana_flask.forms import SignUpForm, LoginForm, RequestHelpForm, PaymentOption, MockCreditCardPayment, TakeJobForm, StartJobForm, arrivedForm, finishJobForm, completeJobForm, forgotPasswordForm, ratingForm, downloadForm
 from codejana_flask.models import User
 from sqlalchemy.exc import IntegrityError
 
+# the route for the home page
 @app.route('/')
 @app.route('/home')
 def homepage():
     return render_template('homepage.html',title='Home')
 
+# the route for the about page
 @app.route('/about')
 def about():
     return render_template('About.html',title='About')
 
+# the route for the account page which is not used in final production
 @app.route('/account')
 def account():
     return render_template('Account.html',title='Account')
 
-
+# route for the sign up page
 @app.route('/sign_up', methods=['POST', 'GET'])
 def sign_up():
+    # declaring the sign up form
     form=SignUpForm()
+    # try to sign up user if user has not 
     try:
         if form.validate_on_submit():
             user = User(username=form.username.data, email=form.email.data, password=form.password.data)
@@ -44,14 +50,14 @@ job_completed = []
 #                     ['sam@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'bob@mechanic.com'], ['raveena@dot.com', 'Drove my car into a lake', 'NSW', '8189', 'BMW i4', 'Car Towed back to the shop to drain all the water out of it.', '5', 'bob@mechanic.com'],
 #                     ['jack@dot.com', 'Ran out of fuel', 'NSW', '4321', 'Toyota Supra', 'Filled up clients car with E10 to full', '3', 'bob@mechanic.com'], ['keegan@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'bob@mechanic.com'],
 #                     ['tom@dot.com', 'Flat Car Battery', 'NSW', '0010', 'Honda Jazz', 'Battery Replaced', '4.8', 'bob@mechanic.com'], ['ludy@dot.com', 'Drove into a pole and smahed a headlight', 'NSW', '2001', 'VW ID Buzz', 'Headlight fixed.', '2.1', 'bob@mechanic.com'],
-#                     ['sam@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'jeff@mechanic.com'], ['raveena@dot.com', 'Drove my car into a lake', 'NSW', '8189', 'BMW i4', 'Car Towed back to the shop to drain all the water out of it.', '5', 'jeff@mechanic.com'],
-#                     ['jack@dot.com', 'Ran out of fuel', 'NSW', '4321', 'Toyota Supra', 'Filled up clients car with E10 to full', '5', 'jeff@mechanic.com'], ['keegan@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'jeff@mechanic.com'],
-#                     ['tom@dot.com', 'Flat Car Battery', 'NSW', '0010', 'Honda Jazz', 'Battery Replaced', '4.8', 'jeff@mechanic.com'], ['ludy@dot.com', 'Drove into a pole and smahed a headlight', 'NSW', '2001', 'VW ID Buzz', 'Headlight fixed.', '2.1', 'jeff@mechanic.com'],
-#                     ['sam@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'jim@mechanic.com'], ['raveena@dot.com', 'Drove my car into a lake', 'NSW', '8189', 'BMW i4', 'Car Towed back to the shop to drain all the water out of it.', '5', 'jim@mechanic.com'],
-#                     ['jack@dot.com', 'Ran out of fuel', 'NSW', '4321', 'Toyota Supra', 'Filled up clients car with E10 to full', '5', 'jim@mechanic.com'], ['keegan@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'jim@mechanic.com'],
-#                     ['tom@dot.com', 'Flat Car Battery', 'NSW', '0010', 'Honda Jazz', 'Battery Replaced', '4.8', 'jim@mechanic.com'], ['ludy@dot.com', 'Drove into a pole and smahed a headlight', 'NSW', '2001', 'VW ID Buzz', 'Headlight fixed.', '2.1', 'jim@mechanic.com'],
-#                     ['ludy@dot.com', 'Car turned into a motorbike', 'QLD', '000', 'Spaceship 3000', 'Motorbike is cool, so nothing was changed.', '5', 'johnny@mechanic.com'],
-#                     ['sam@dot.com', 'Car Exploded', 'UOW campus', 'b00m', 'Tesla Model 3', 'Built Car in lego parts from scratch', '4.5', 'johnny@mechanic.com']
+#                     ['sam2@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'jeff@mechanic.com'], ['raveena2@dot.com', 'Drove my car into a lake', 'NSW', '8189', 'BMW i4', 'Car Towed back to the shop to drain all the water out of it.', '5', 'jeff@mechanic.com'],
+#                     ['jack2@dot.com', 'Ran out of fuel', 'NSW', '4321', 'Toyota Supra', 'Filled up clients car with E10 to full', '5', 'jeff@mechanic.com'], ['keegan2@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'jeff@mechanic.com'],
+#                     ['tom2@dot.com', 'Flat Car Battery', 'NSW', '0010', 'Honda Jazz', 'Battery Replaced', '4.8', 'jeff@mechanic.com'], ['ludy2@dot.com', 'Drove into a pole and smahed a headlight', 'NSW', '2001', 'VW ID Buzz', 'Headlight fixed.', '2.1', 'jeff@mechanic.com'],
+#                     ['sam3@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'jim@mechanic.com'], ['raveena3@dot.com', 'Drove my car into a lake', 'NSW', '8189', 'BMW i4', 'Car Towed back to the shop to drain all the water out of it.', '5', 'jim@mechanic.com'],
+#                     ['jack3@dot.com', 'Ran out of fuel', 'NSW', '4321', 'Toyota Supra', 'Filled up clients car with E10 to full', '5', 'jim@mechanic.com'], ['keegan3@dot.com', 'Flat Tire', 'NSW', '1234', 'Mazda', 'Tire fixed.', '5', 'jim@mechanic.com'],
+#                     ['tom3@dot.com', 'Flat Car Battery', 'NSW', '0010', 'Honda Jazz', 'Battery Replaced', '4.8', 'jim@mechanic.com'], ['ludy3@dot.com', 'Drove into a pole and smahed a headlight', 'NSW', '2001', 'VW ID Buzz', 'Headlight fixed.', '2.1', 'jim@mechanic.com'],
+#                     ['ludy4@dot.com', 'Car turned into a motorbike', 'QLD', '000', 'Spaceship 3000', 'Motorbike is cool, so nothing was changed.', '5', 'johnny@mechanic.com'],
+#                     ['sam4@dot.com', 'Car Exploded', 'UOW campus', 'b00m', 'Tesla Model 3', 'Built Car in lego parts from scratch', '4.5', 'johnny@mechanic.com']
 #                 ]
 requests_completed=[]
 user_emails = []
@@ -300,4 +306,7 @@ def ratings():
 
 @app.route('/download', methods=['POST', 'GET'])
 def download():
-    return render_template('download.html', title='Download page')
+    download_ = downloadForm()
+    if download_.validate_on_submit():
+        flash(f'You have downloaded a txt file.', category='success')
+    return render_template('download.html', requests_completed=requests_completed, title='Download page', download_=download_)

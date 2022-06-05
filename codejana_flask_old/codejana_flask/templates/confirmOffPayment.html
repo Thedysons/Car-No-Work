@@ -1,0 +1,20 @@
+{% extends 'clientProfile.html' %} 
+{%block contentA%} 
+
+<div style="background:#1b2653;
+height:95.6vh; width:100vw; padding:30vh 20vw">
+<div class="container w-50" style="background:#fff;border-radius: 25px; ">
+    <div class="row" style="padding:1vw">
+        <div class="col">
+            <div class="container mb-4" style="text-align:center">
+                <h1>Confirmation of your payment</h1>
+                <h1 style="padding:0.5vh;">&#x2705;</h1>
+                <p>Your payment has been successfully made.<br>
+                A reciept of your payment has been sent to your email!</p>
+                <a href="{{url_for('clientProfile')}}" class="btn btn-primary" role="button" data-bs-toggle="button">Back to profile</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{%endblock contentA%}

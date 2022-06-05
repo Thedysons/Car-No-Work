@@ -1,0 +1,39 @@
+{% extends 'clientProfile.html' %} 
+{%block contentA%} 
+<style>
+    body{
+    color: white;
+    background-color: #1b2653;
+    }           
+</style>
+<div style="display: flex; flex-direction: column; align-items: center;">
+    <div style="padding: 20px; margin-top: 5%; width: 80%;"> 
+
+<table class="table table-bordered table-dark border-primaryr">
+    <thead>
+    <tr>
+    <th>Notifications</th>
+    </tr>
+    </thead>
+    <tbody>
+        {% if job_started|length > 0 %}
+            <td>Your job has been confirmed by {{job_started[0][3]}}, who will arrive approximately in {{job_started[0][2]}}.</td>
+            {% if arrival|length > 0 %}
+                <tr>
+                <td>{{arrival[0]}}</td>
+                </tr>
+            {% endif %}
+        {%else%}
+            <td><b>You have no Notifications</b></td>
+            
+        {% endif %}
+    </tbody>
+    
+</table>
+</div>
+</div>
+<div style="width: 100%;margin-top: 500px; display:flex; justify-content: center;">
+    <img style="height: 20vh;object-fit: contain;" 
+    src="{{url_for('static',filename='theme_pics/logoTransWhite.png')}}"  alt="...">
+</div>
+{%endblock contentA%}
